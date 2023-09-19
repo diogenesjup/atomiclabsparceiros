@@ -103,19 +103,6 @@
         <icon src="www/assets/images/icones/960.png" density="xxxhdpi" width="960" height="960" />
         <icon src="www/assets/images/icones/1024x1024.png" density="xxxhdpi"  width="1024" height="1024" />
 
-        <resource-file src="www/res/android/1fgwx398.jpg" target="app/src/main/res/drawable/notif1fgwx398.jpg" />
-        <resource-file src="www/res/android/3938074.png" target="app/src/main/res/drawable/notif3938074.png" />
-        <resource-file src="www/res/android/braip.png" target="app/src/main/res/drawable/notifbraip.png" />
-        <resource-file src="www/res/android/c1123fdd8714f1b5c690ed52fa8412e7.png" target="app/src/main/res/drawable/notifc1123fdd8714f1b5c690ed52fa8412e7.png" />
-        <resource-file src="www/res/android/eduzz.png" target="app/src/main/res/drawable/notifeduzz.png" />
-        <resource-file src="www/res/android/logo-nubank-roxo-icon-4096.png" target="app/src/main/res/drawable/notiflogonubankroxoicon4096.png" />
-        <resource-file src="www/res/android/monetizze.png" target="app/src/main/res/drawable/notifmonetizze.png" />
-        <resource-file src="www/res/android/simbolo.png" target="app/src/main/res/drawable/notifsimbolo.png" />
-        <resource-file src="www/res/android/uber_icon_130805.png" target="app/src/main/res/drawable/notifubericon130805.png" />
-        <resource-file src="www/res/android/unnamed (1).png" target="app/src/main/res/drawable/notifunnamed.png" />
-        <resource-file src="www/res/android/unnamed.png" target="app/src/main/res/drawable/notifunnamed2.png" />
-        <resource-file src="www/res/android/WhatsApp-icone-3.png" target="app/src/main/res/drawable/notifwhatsappicone3.png" />
-
     </platform>
     
     <plugin name="cordova-plugin-whitelist" version="1.3.4" />
