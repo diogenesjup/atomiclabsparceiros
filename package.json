@@ -1,14 +1,14 @@
 {
-  "name": "com.diogenesjunior.pefisa",
+  "name": "com.diogenesjunior.atomiclabsparceiros",
   "version": "1.0.0",
-  "description": "Aplicativo para gerar cobranças PIX Pefisa",
+  "description": "Atomic Labs Parceiros",
   "main": "index.html",
   "scripts": {
     "test": "test"
   },
   "repository": {
     "type": "git",
-    "url": "git+ https://github.com/diogenesjup/pefisa-app-pix.git"
+    "url": "git+https://github.com/diogenesjup/atomiclabsparceiros.git"
   },
   "keywords": [
     "pefisa pix"
@@ -16,7 +16,7 @@
   "author": "Diogenes Junior",
   "license": "ISC",
   "bugs": {
-    "url": " https://github.com/diogenesjup/pefisa-app-pix/issues"
+    "url": "https://github.com/diogenesjup/atomiclabsparceiros/issues"
   },
-  "homepage": " https://github.com/diogenesjup/pefisa-app-pix#readme"
+  "homepage": "https://github.com/diogenesjup/atomiclabsparceiros#readme"
 }

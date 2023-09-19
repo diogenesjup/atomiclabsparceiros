@@ -56,14 +56,18 @@ ysyss
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, viewport-fit=cover" />
-<title>Pefisa</title>
+<title>ATOMIC LABS PARCEIROS</title>
 <link rel="stylesheet" type="text/css" href="styles/bootstrap.css">
 <link rel="stylesheet" type="text/css" href="styles/style.css">
 <link rel="stylesheet" type="text/css" href="css/diogenes.css">
+<link rel="stylesheet" type="text/css" href="css/diogenes-grid.css">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 <link rel="stylesheet" type="text/css" href="fonts/css/fontawesome-all.min.css">
 
-<meta name="theme-color" content="#023f88">
+<link rel='stylesheet' type="text/css" href="css/dzstooltip.css"/>
+<link rel='stylesheet' type="text/css" href="css/dzscalendar.css"/>
+
+<meta name="theme-color" content="#f7525c">
 <!--<link rel="apple-touch-icon" sizes="180x180" href="app/icons/icon-192x192.png">-->
 </head>
 
@@ -75,11 +79,9 @@ ysyss
 
     <div class="header header-auto-show header-fixed header-logo-center">
         <a href="dashboard.html" class="header-title">
-            <img src="images/logo-pefisa.png" alt="Pefisa">
+            <img src="images/logo.png" alt="Atomic Labs parceiros">
         </a>
         <a href="#" data-menu="menu-main" class="header-icon header-icon-1"><i class="fas fa-bars"></i></a>
-        <a href="#" data-toggle-theme class="header-icon header-icon-4 show-on-theme-dark"><i class="fas fa-sun"></i></a>
-        <a href="#" data-toggle-theme class="header-icon header-icon-4 show-on-theme-light"><i class="fas fa-moon"></i></a>
     </div>
 
     <div id="footer-bar" class="footer-bar-6">
@@ -92,10 +94,8 @@ ysyss
     
 
     <div class="page-title page-title-fixed">
-        <h1><img src="images/logo-pefisa.png" alt="Pefisa"></h1>
+        <h1><img src="images/logo.png" alt="Atomic Labs Parceiros"></h1>
        
-        <a href="#" class="page-title-icon shadow-xl bg-theme color-theme show-on-theme-light" data-toggle-theme><i class="fa fa-moon"></i></a>
-        <a href="#" class="page-title-icon shadow-xl bg-theme color-theme show-on-theme-dark" data-toggle-theme><i class="fa fa-lightbulb color-yellow-dark"></i></a>
         <a href="#" class="page-title-icon shadow-xl bg-theme color-theme" data-menu="menu-main"><i class="fa fa-bars"></i></a>
     </div>
     <div class="page-title-clear"></div>
@@ -153,16 +153,41 @@ ysyss
 
         <!-- HISTORIES-->
         <div class="content mt-0 mb-0">
+
+
+            <div class=" mx-0">
+                <div class="content">
+                    <div class="diogenes-row">
+                        <div class="diogenes-col-6" style="padding: 5px;">
+                            <div class="caixa-saldo">
+                                <h2>
+                                    <small>SEU SALDO</small>
+                                    R$ 120,00</h2>
+                            </div>
+                        </div>
+                        <div class="diogenes-col-6" style="padding: 5px;">
+                            <div class="caixa-saldo caixa-saldo-futuros">
+                                <h2>
+                                    <small>SALDO FUTURO</small>
+                                    R$ 99,25</h2>
+                            </div>
+                        </div>
+                   
+                    
+                    </div>
+                </div>
+            </div>
+
+
         
             <div class=" mx-0">
                 <div class="content">
-                    <h1>Contatos</h1>
-                    <p>&nbsp;</p>
+                    <h1 style="margin-bottom: -17px;">Últimas Vendas</h1>
                 </div>
             </div>
 
             <div class="carregando-contatos text-center">
-                <i class="fa fa-sync fa-spin me-3"></i> carregando seus contatos
+                <i class="fa fa-sync fa-spin me-3"></i> carregando suas vendas
             </div>
             <div class="carregando-contatos-vazio text-center" style="display: none;">
                 Você ainda não tem nenhum contato cadastrado.
@@ -263,7 +288,7 @@ ysyss
 <script src="assets/js/dist/jquery.inputmask.bundle.js"></script>
 <script src="assets/js/dist/inputmask/phone-codes/phone.js"></script>
 
-
+<script type="text/javascript" src="js/dzscalendar.js"></script>
 
 <script type="text/javascript" src="js/commom/commom.js"></script> <!-- STANCIAS DE PLUGINS EXTERNOS -->
 <script src="js/controllers/Controllers.js"></script> <!-- CONTROLLEERS GUARDAM AS FUNCOES GERAIS -->
@@ -280,7 +305,7 @@ setTimeout(function(){
 
     app.models.getContatos();
 
-}, 2000);
+}, 5000);
 
 
 </script>

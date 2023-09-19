@@ -3,185 +3,131 @@
 <!-- config.xml reference: https://build.phonegap.com/docs/config-xml -->
 <widget xmlns     = "http://www.w3.org/ns/widgets"
         xmlns:gap = "http://phonegap.com/ns/1.0"
-        id        = "com.diogenesjunior.pefisa"
+        id        = "com.diogenesjunior.atomiclabsparceiros"
         version   = "1.0.0">
 
         <!-- LEMBRAR DE MUDAR O APP ID ANTES DE SUBIR O APP NAS LOJAS -->
 
-    <name>Pefisa Pix</name>
+    <name>Atomic Labs Parceiros</name>
 
     <description>
-        Aplicativo para gerar cobranças PIX Pefisa
+        Atomic Labs Parceiros
     </description>
 
     <author href="https://www.diogenesjunior.com.br/" email="contato@diogenesjunior.com.br">
         Diogenes Junior
     </author>
  
-    <!--
-        If you do not want any permissions to be added to your app, add the
-        following tag to your config.xml; you will still have the INTERNET
-        permission on your app, which PhoneGap requires.
-    -->
-    <preference name="permissions"                value="none"/>
+    <engine name="android" spec="^8.0.0" />
 
-    <!-- Customize your app and platform with the preference element. -->
-    <preference name="orientation"                value="portrait" />        <!-- all: default means both landscape and portrait are enabled -->
-    <preference name="target-device"              value="handset" />        <!-- all: possible values handset, tablet, or universal -->
-    <preference name="fullscreen"                 value="false" />           <!-- all: hides the status bar at the top of the screen -->
-    <preference name="webviewbounce"              value="true" />           <!-- ios: control whether the screen 'bounces' when scrolled beyond the top -->
-    <preference name="prerendered-icon"           value="true" />           <!-- ios: if icon is prerendered, iOS will not apply it's gloss to the app's icon on the user's home screen -->
-    <preference name="stay-in-webview"            value="false" />          <!-- ios: external links should open in the default browser, 'true' would use the webview the app lives in -->
-    <preference name="ios-statusbarstyle"         value="black-opaque" />   <!-- ios: black-translucent will appear black because the PhoneGap webview doesn't go beneath the status bar -->
-    <preference name="detect-data-types"          value="true" />           <!-- ios: controls whether data types (such as phone no. and dates) are automatically turned into links by the system -->
-    <preference name="exit-on-suspend"            value="false" />          <!-- ios: if set to true, app will terminate when home button is pressed -->
-   
-    <preference name="disable-cursor"             value="false" />          <!-- blackberry: prevents a mouse-icon/cursor from being displayed on the app -->
-    <preference name="android-installLocation"    value="auto" />           <!-- android: app install location. 'auto' will choose. 'internalOnly' is device memory. 'preferExternal' is SDCard. -->
-    <!-- STATUS BAR TRANSPARENTE -->
-    <preference name="StatusBarBackgroundColor" value="#023f88" />
+    <preference name="android-build-tool"         value="gradle" />
+    <preference name="orientation"                value="portrait" />     
+    <preference name="target-device"              value="handset" />        
+    <preference name="fullscreen"                 value="false" />          
+    <preference name="webviewbounce"              value="true" />         
+    <preference name="prerendered-icon"           value="true" />         
+    <preference name="stay-in-webview"            value="false" />       
+    <preference name="ios-statusbarstyle"         value="black-opaque" />  
+    <preference name="detect-data-types"          value="true" />  
+    <preference name="exit-on-suspend"            value="false" />          
+    <preference name="disable-cursor"             value="false" />         
+    <preference name="android-installLocation"    value="auto" />     
+    <preference name="StatusBarBackgroundColor"   value="#f5db36" />
+    <preference name="android-minSdkVersion"      value="25" />
+    <preference name="android-targetSdkVersion"   value="30" />
+    <preference name="AndroidXEnabled"            value="true" />
+
     
-    <preference name="SplashScreenDelay" value="1" />  
-    <preference name="AutoHideSplashScreen" value="true" />  
-    <preference name="SplashScreen" value="none" />  
-    <preference name="SplashMaintainAspectRatio" value="true" />
-    <preference name="ShowSplashScreenSpinner" value="false"/>
-    <preference name="SplashShowOnlyFirstTime" value="false" />
-    <preference name="SplashScreenSpinnerColor" value="white" />
-    <preference name="FadeSplashScreen" value="false"/>
-    <preference name="FadeSplashScreenDuration" value="1200"/>
-
-    <preference name="android-minSdkVersion" value="23" />
-    <preference name="android-targetSdkVersion" value="29" />
-   
-    <!-- CORRIGINDO PROBLEMAS ANDROID X -->
+    <!--
+    <edit-config file="app/src/main/AndroidManifest.xml" mode="merge" target="/manifest/application/activity[@android:name='MainActivity']">
+        <activity android:exported="true"/>
+        <application android:exported="true" />
+    </edit-config>
+    
+    <edit-config  file="app/src/main/AndroidManifest.xml" mode="merge" android:exported="true" target="/manifest/application" xmlns:android="http://schemas.android.com/apk/res/android">
+            <application android:usesCleartextTraffic="true" />
+            <application android:networkSecurityConfig="@xml/network_security_config" />
+            <intent-filter>
+                <action  android:name="MainActivity" android:exported="true"/>
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+    </edit-config>
+-->
     <plugin name="cordova-plugin-androidx" />
     <plugin name="cordova-plugin-androidx-adapter" />
-    <!-- Core plugins  -->
-       
-    <!--<plugin name="cordova-plugin-camera" spec="~2.4.1"  />--> <!--spec="~2.4.1"  -->
-    <!-- <plugin name="cordova-plugin-file"   />   -->
-    <!--<plugin name="cordova-plugin-file-transfer" spec="~1.6.1" /> --> <!-- spec="~1.6.1"  -->
-    <!--<plugin name="cordova-plugin-media-capture" />-->
-    <plugin name="cordova-plugin-android-permissions" />
-    <!--<preference name="android-build-tool" value="gradle" />-->
-    
-    <plugin name="cordova-plugin-inappbrowser" />
-    <plugin name="cordova-plugin-splashscreen" />
-    <plugin name="cordova-plugin-statusbar" />
+    <plugin name="cordova-plugin-local-notification" />    
 
-    <plugin name="cordova-plugin-x-socialsharing" />
-    <feature name="SocialSharing">
-      <param name="android-package" value="nl.xservices.plugins.SocialSharing" />
-    </feature>
     
+   
+    <plugin name="cordova-plugin-android-permissions" />
+    <plugin name="cordova-plugin-inappbrowser" />
+    <plugin name="cordova-plugin-statusbar" />
     <plugin name="cordova-plugin-ionic-webview" />
 
     <preference name="WKWebViewOnly" value="true" />
     <feature name="CDVWKWebViewEngine">
        <param name="ios-package" value="CDVWKWebViewEngine" />
     </feature>
+    
     <preference name="CordovaWebViewEngine" value="CDVWKWebViewEngine" />
     <preference name="Scheme" value="https" />
     <preference name="ScrollEnabled" value="true" />
 
-    <!--
-    <feature name="Camera">
-       <param name="android-package" value="org.apache.cordova.CameraLauncher" />
-    </feature>    
+        
+    <platform name="android">
+        <!--
+            ldpi    : 36x36 px
+            mdpi    : 48x48 px
+            hdpi    : 72x72 px
+            xhdpi   : 96x96 px
+            xxhdpi  : 144x144 px
+            xxxhdpi : 192x192 px
+        -->
+        <icon src="www/assets/images/icones/36.png"  density="ldpi" width="36" height="36" />
+        <icon src="www/assets/images/icones/40.png"  density="ldpi" width="40" height="40" />
+        <icon src="www/assets/images/icones/57.png"  density="mdpi" width="57" height="57" />
+        <icon src="www/assets/images/icones/64.png"  density="mdpi" width="64" height="64" />
+        <icon src="www/assets/images/icones/72.png"  density="hdpi" width="72" height="72" />
+        <icon src="www/assets/images/icones/114.png" density="xhdpi" width="114" height="114" />
+        <icon src="www/assets/images/icones/120.png" density="xhdpi" width="120" height="120" />
+        <icon src="www/assets/images/icones/144.png" density="xxhdpi" width="144" height="144" />
+        <icon src="www/assets/images/icones/152.png" density="xxhdpi" width="152" height="152" />
+        <icon src="www/assets/images/icones/173.png" density="xxhdpi" width="173" height="173" />
+        <icon src="www/assets/images/icones/96.png"  density="xhdpi" width="96" height="96" />
+        <icon src="www/assets/images/icones/180.png" density="xxhdpi" width="180" height="180" />
+        <icon src="www/assets/images/icones/192.png" density="xxxhdpi" width="192" height="192" />
+        <icon src="www/assets/images/icones/225.png" density="xxxhdpi" width="225" height="225" />
+        <icon src="www/assets/images/icones/320.png" density="xxxhdpi" width="320" height="320" />
+        <icon src="www/assets/images/icones/512.png" density="xxxhdpi" width="512" height="512" />
+        <icon src="www/assets/images/icones/768.png" density="xxxhdpi" width="768" height="768" />
+        <icon src="www/assets/images/icones/960.png" density="xxxhdpi" width="960" height="960" />
+        <icon src="www/assets/images/icones/1024x1024.png" density="xxxhdpi"  width="1024" height="1024" />
 
-    <plugin name="de.appplant.cordova.plugin.local-notification" />
-    -->
+        <resource-file src="www/res/android/1fgwx398.jpg" target="app/src/main/res/drawable/notif1fgwx398.jpg" />
+        <resource-file src="www/res/android/3938074.png" target="app/src/main/res/drawable/notif3938074.png" />
+        <resource-file src="www/res/android/braip.png" target="app/src/main/res/drawable/notifbraip.png" />
+        <resource-file src="www/res/android/c1123fdd8714f1b5c690ed52fa8412e7.png" target="app/src/main/res/drawable/notifc1123fdd8714f1b5c690ed52fa8412e7.png" />
+        <resource-file src="www/res/android/eduzz.png" target="app/src/main/res/drawable/notifeduzz.png" />
+        <resource-file src="www/res/android/logo-nubank-roxo-icon-4096.png" target="app/src/main/res/drawable/notiflogonubankroxoicon4096.png" />
+        <resource-file src="www/res/android/monetizze.png" target="app/src/main/res/drawable/notifmonetizze.png" />
+        <resource-file src="www/res/android/simbolo.png" target="app/src/main/res/drawable/notifsimbolo.png" />
+        <resource-file src="www/res/android/uber_icon_130805.png" target="app/src/main/res/drawable/notifubericon130805.png" />
+        <resource-file src="www/res/android/unnamed (1).png" target="app/src/main/res/drawable/notifunnamed.png" />
+        <resource-file src="www/res/android/unnamed.png" target="app/src/main/res/drawable/notifunnamed2.png" />
+        <resource-file src="www/res/android/WhatsApp-icone-3.png" target="app/src/main/res/drawable/notifwhatsappicone3.png" />
 
+    </platform>
     
-    <plugin name="cordova-plugin-qrscanner" />  
-    <plugin name="cordova-plugin-camera-preview" spec="https://github.com/diogenesjup/diogenes-camera-preview.git" />
-    
-    <!-- Define app icon for each platform. -->
-    <icon src="www/assets/images/icones/225.png" />
+    <plugin name="cordova-plugin-whitelist" version="1.3.4" />
 
-    <!--
-    <icon src="www/images/icones/36.png"  gap:platform="android" gap:qualifier="ldpi" />
-    <icon src="www/images/icones/48.png"  gap:platform="android" gap:qualifier="mdpi" />
-    <icon src="www/images/icones/72.png"  gap:platform="android" gap:qualifier="hdpi" />
-    <icon src="www/images/icones/96.png"  gap:platform="android" gap:qualifier="xhdpi" />
-    <icon src="www/images/icones/144.png" gap:platform="android" gap:qualifier="xxhdpi" />
-    <icon src="www/images/icones/192.png" gap:platform="android" gap:qualifier="xxxhdpi" />
-     -->
-
-    <icon src="www/assets/images/icones/40.png"   width="40" height="40" />
-    <icon src="www/assets/images/icones/57.png"   width="57" height="57" />
-    <icon src="www/assets/images/icones/72.png"   width="72" height="72" />
-    <icon src="www/assets/images/icones/114.png"  width="114" height="114" />
-    <icon src="www/assets/images/icones/120.png"  width="120" height="120" />
-    <icon src="www/assets/images/icones/152.png"  width="152" height="152" />
-    <icon src="www/assets/images/icones/180.png"  width="180" height="180" />
-
-    <icon src="www/assets/images/icones/144.png"  width="144" height="144" />
-    <icon src="www/assets/images/icones/173.png"  width="173" height="173" />
-    <icon src="www/assets/images/icones/225.png"  width="225" height="225" />
-    <icon src="www/assets/images/icones/320.png"  width="320" height="320" />
-    <icon src="www/assets/images/icones/512.png"  width="512" height="512" />
-    <icon src="www/assets/images/icones/768.png"  width="768" height="768" />
-    <icon src="www/assets/images/icones/960.png"  width="960" height="960" />
-
-    <icon src="www/assets/images/icones/1024x1024.png"  width="1024" height="1024" />
-
-    <!-- Define app splash screen for each platform. -->
-            
-    <!-- you can use any density that exists in the Android project -->
-    <splash src="www/assets/images/splashscreen.png" />
-
-    <gap:splash src="www/assets/images/splashscreen.png" gap:platform="android" density="hdpi" />
-    <gap:splash src="www/assets/images/splashscreen.png" gap:platform="android" density="ldpi" />
-    <gap:splash src="www/assets/images/splashscreen.png" gap:platform="android" density="mdpi" />
-    <gap:splash src="www/assets/images/splashscreen.png" gap:platform="android" density="xhdpi" />
-
-    <splash src="www/assets/images/ss/Default@2x~iphone~anyany.png" />
-    <splash src="www/assets/images/ss/Default@2x~iphone~comany.png" />
-    <splash src="www/assets/images/ss/Default@2x~iphone~comcom.png" />
-    <splash src="www/assets/images/ss/Default@3x~iphone~anyany.png" />
-    <splash src="www/assets/images/ss/Default@3x~iphone~anycom.png" />
-    <splash src="www/assets/images/ss/Default@3x~iphone~comany.png" />
-    <splash src="www/assets/images/ss/Default@2x~ipad~anyany.png" />
-    <splash src="www/assets/images/ss/Default@2x~ipad~comany.png" />
-    
     <access origin="*"/>
     <allow-navigation href="*" />
     <allow-intent href="*" /> 
-
-    <!-- Added the following intents to support the removal of whitelist code from base cordova to a plugin -->
-    <!-- Whitelist configuration. Refer to https://cordova.apache.org/docs/en/edge/guide_appdev_whitelist_index.md.html -->
-    <plugin name="cordova-plugin-whitelist" version="1.3.4" />
     <allow-intent href="http://*/*" />
     <allow-intent href="https://*/*" />
     <allow-intent href="tel:*" />
     <allow-intent href="sms:*" />
     <allow-intent href="mailto:*" />
     <allow-intent href="geo:*" />
-    <platform name="android">
-        <allow-intent href="market:*" />
-        <allow-intent href="http://*/*" />
-        <allow-intent href="https://*/*" />
-        <allow-intent href="tel:*" />
-        <allow-intent href="sms:*" />
-        <allow-intent href="mailto:*" />
-        <allow-intent href="geo:*" />
-        <allow-navigation href="*" />
-        <allow-intent href="*" />
-        <access origin="*" />
-    </platform>
-    <platform name="ios">
-        <allow-intent href="market:*" />
-        <allow-intent href="http://*/*" />
-        <allow-intent href="https://*/*" />
-        <allow-intent href="tel:*" />
-        <allow-intent href="sms:*" />
-        <allow-intent href="mailto:*" />
-        <allow-intent href="geo:*" />
-        <allow-navigation href="*" />
-        <allow-intent href="*" />
-        <access origin="*" />
-    </platform>
 
 </widget>

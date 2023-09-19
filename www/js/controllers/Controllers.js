@@ -83,8 +83,14 @@ class App {
         toastID = new bootstrap.Toast(toastID);
         toastID.show();
 
-        // ENVIAR OS DADOS
-        this.models.procLogin(form);
+        var instancia = this;
+
+        // ENVIAR OS DADOS SÓ DEPOIS DE 5 SEGUNDOS
+        setTimeout(function(){ 
+            instancia.models.procLogin(form);
+        }, 5000);
+
+        
         
 
     }

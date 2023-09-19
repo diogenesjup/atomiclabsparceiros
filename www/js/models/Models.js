@@ -13,53 +13,11 @@ class Models{
     // PROC LOGIN
     procLogin(form){
 
-            var dadosForm = $(form).serialize();
-
-            // CONFIGURAÇÕES AJAX VANILLA
-            let xhr = new XMLHttpRequest();
-            
-            xhr.open('POST', app.urlApi+'auth/login/',true);
-            xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
-
-            var params = "token="+app.token+
-                        "&"+dadosForm;
-            
-            // INICIO AJAX VANILLA
-            xhr.onreadystatechange = () => {
-
-            if(xhr.readyState == 4) {
-
-                if(xhr.status == 200) {
-
-                    console.log("OPERAÇÃO REALIZADA COM SUCESSO");
-                    console.log(JSON.parse(xhr.responseText));
-
-                    var dados = JSON.parse(xhr.responseText);
-
-                    if(dados.sucesso==403){
-
-                        document.getElementById('msgErroLoginSenha').click();
-
-                    }else{
-                        
-                        // LOGIN OK
-                        app.login(dados.dados[0].id,dados.dados[0].email,dados.dados[0]);
-
-                    }
-                    
-                }else{
-                
-                    console.log("SEM SUCESSO procLogin()");
-                    console.log(JSON.parse(xhr.responseText));
-                    document.getElementById('msgErroLoginSenha').click();
-
-                }
-
+            if(jQuery("#form1a").val()=="cupomteste"){
+                location.href="dashboard.html";
+            }else{
+                document.getElementById('msgErroLoginSenha').click();
             }
-        }; // FINAL AJAX VANILLA
-
-        /* EXECUTA */
-        xhr.send(params);
             
     }
 
@@ -189,376 +147,166 @@ class Models{
 
         console.log("INICIANDO FUNÇÃO PARA CARREGAR OS CONTATOS DO USÁRIO");
 
-        var idUsuario = localStorage.getItem("idUsuario");
+                    // FEED DE PESQUISA
+                    jQuery("#listaContatosPesquisa").html(`
 
-                // CONFIGURAÇÕES AJAX VANILLA
-                let xhr = new XMLHttpRequest();
+                   
                         
-                xhr.open('POST', app.urlApi+'pefisa/meus-numeros/',true);
-                xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
-
-                var params = "token="+app.token+
-                            "&id_usuario="+idUsuario;
+                            <a href="" class="d-flex mb-3" data-filter-item data-filter-name="todos Diogenes Junior" style="padding-top:26px">
                 
-                // INICIO AJAX VANILLA
-                xhr.onreadystatechange = () => {
+                                <div class="resumo-letra-contato">
+                                     Diogenes Junior
+                                </div>
+                                <div>
+                                    <h5 class="font-16 font-600">Diogenes Junior</h5>
+                                    <p class="line-height-s mt-1 opacity-90">Pedido #3920</p>
+                                </div>
+                                <div class="align-self-center ps-3">
+                                    <i class="fa fa-angle-right opacity-20"></i>
+                                </div>
+                            </a>
 
-                if(xhr.readyState == 4) {
+                            <a href="" class="d-flex mb-3" data-filter-item data-filter-name="todos Ygor Kaza" style="padding-top:26px">
+                
+                                <div class="resumo-letra-contato">
+                                    Ygor Kaza
+                                </div>
+                                <div>
+                                    <h5 class="font-16 font-600">Ygor Kaza</h5>
+                                    <p class="line-height-s mt-1 opacity-90">Pedido #3921</p>
+                                </div>
+                                <div class="align-self-center ps-3">
+                                    <i class="fa fa-angle-right opacity-20"></i>
+                                </div>
+                            </a>
 
-                    if(xhr.status == 200) {
+                            <a href="" class="d-flex mb-3" data-filter-item data-filter-name="todos Halley Hart" style="padding-top:26px">
+                
+                                <div class="resumo-letra-contato">
+                                    Halley Hart
+                                </div>
+                                <div>
+                                    <h5 class="font-16 font-600">Halley Hart</h5>
+                                    <p class="line-height-s mt-1 opacity-90">Pedido #3922</p>
+                                </div>
+                                <div class="align-self-center ps-3">
+                                    <i class="fa fa-angle-right opacity-20"></i>
+                                </div>
+                            </a>
 
-                        console.log("OPERAÇÃO REALIZADA COM SUCESSO");
-                        console.log(JSON.parse(xhr.responseText));
+                            <a href="" class="d-flex mb-3" data-filter-item data-filter-name="todos Fernanda Paiola" style="padding-top:26px">
+                
+                                <div class="resumo-letra-contato">
+                                    Fernanda Paiola
+                                </div>
+                                <div>
+                                    <h5 class="font-16 font-600">Fernanda Paiola</h5>
+                                    <p class="line-height-s mt-1 opacity-90">Pedido #3923</p>
+                                </div>
+                                <div class="align-self-center ps-3">
+                                    <i class="fa fa-angle-right opacity-20"></i>
+                                </div>
+                            </a>
 
-                        var contatos = JSON.parse(xhr.responseText);
-
-                        // FEED DE PESQUISA
-                        jQuery("#listaContatosPesquisa").html(`
-
-                               ${contatos.dados.map((n) => {
-
-                                    return `
-                                    
-                                        <a href="" onclick="app.enviarCobranca('${n.nome}','${n.numero}','${n.id}')" class="d-flex mb-3" data-filter-item data-filter-name="todos ${n.nome}" style="padding-top:26px">
-                            
-                                            <div class="resumo-letra-contato">
-                                                ${n.nome[0]}
-                                            </div>
-                                            <div>
-                                                <h5 class="font-16 font-600">${n.nome}</h5>
-                                                <p class="line-height-s mt-1 opacity-70">${n.numero}</p>
-                                            </div>
-                                            <div class="align-self-center ps-3">
-                                                <i class="fa fa-angle-right opacity-20"></i>
-                                            </div>
-                                        </a>
-                                    
-                                    `;
-
-                               }).join('')}
+                            <a href="" class="d-flex mb-3" data-filter-item data-filter-name="todos Jorginho Vans" style="padding-top:26px">
+                
+                                <div class="resumo-letra-contato">
+                                    Jorginho Vans
+                                </div>
+                                <div>
+                                    <h5 class="font-16 font-600">Jorginho Vans</h5>
+                                    <p class="line-height-s mt-1 opacity-90">Pedido #3924</p>
+                                </div>
+                                <div class="align-self-center ps-3">
+                                    <i class="fa fa-angle-right opacity-20"></i>
+                                </div>
+                            </a>
                         
-                        `);
+                       
+            
+            `);
 
-                        // LISTAGEM GERAL
-                        jQuery("#listaContatosListagem").html(`
+            $(".carregando-contatos").hide();
+            $(".carregando-contatos-vazio").hide();
 
-                               ${contatos.dados.map((n) => {
+            // LISTAGEM GERAL
+            jQuery("#listaContatosListagem").html(`
 
-                                    $(".carregando-contatos").hide();
-                                    $(".carregando-contatos-vazio").hide();
-
-                                    return `
-                                    
-                                        <a href="" onclick="app.enviarCobranca('${n.nome}','${n.numero}','${n.id}')" class="d-flex mb-3">
-                                            <div>
-                                                <div class="resumo-letra-contato">
-                                                    ${n.nome[0]}
-                                                </div>
-                                            </div>
-                                            <div>
-                                                <h5 class="font-16 font-600">${n.nome}</h5>
-                                                <p class="line-height-s mt-1 opacity-70">${n.numero}</p>
-                                            </div>
-                                            <div class="align-self-center ps-3">
-                                                <i class="fa fa-angle-right opacity-20"></i>
-                                            </div>
-                                        </a>
-                                    
-                                    `;
-
-                               }).join('')}
+                                <a href="" class="d-flex mb-3" data-filter-item data-filter-name="todos Diogenes Junior" style="padding-top:26px">
                         
-                        `);
+                                    <div class="resumo-letra-contato">
+                                        D
+                                    </div>
+                                    <div>
+                                        <h5 class="font-16 font-600">Diogenes Junior</h5>
+                                        <p class="line-height-s mt-1 opacity-90">Pedido #3920</p>
+                                    </div>
+                                    <div class="align-self-center ps-3">
+                                        <i class="fa fa-angle-right opacity-20"></i>
+                                    </div>
+                                </a>
 
-                        if(contatos.dados.length==0){
-
-                            $(".carregando-contatos").hide();
-                            $(".carregando-contatos-vazio").show();
-                        }
-
-                        
-                    }else{
+                                <a href="" class="d-flex mb-3" data-filter-item data-filter-name="todos Ygor Kaza" style="padding-top:26px">
                     
-                        console.log("SEM SUCESSO getContatos()");
-                        console.log(JSON.parse(xhr.responseText));
+                                    <div class="resumo-letra-contato">
+                                        Y
+                                    </div>
+                                    <div>
+                                        <h5 class="font-16 font-600">Ygor Kaza</h5>
+                                        <p class="line-height-s mt-1 opacity-90">Pedido #3921</p>
+                                    </div>
+                                    <div class="align-self-center ps-3">
+                                        <i class="fa fa-angle-right opacity-20"></i>
+                                    </div>
+                                </a>
 
-                        document.getElementById('erroGeral').click();
-
-                    }
-
-                }
-            }; // FINAL AJAX VANILLA
-
-            /* EXECUTA */
-            xhr.send(params);
-
-
-
-    }
-
-    enviarCobrancaPix(form){
-
-                var dadosForm = $(form).serialize();
-
-                // CONFIGURAÇÕES AJAX VANILLA
-                let xhr = new XMLHttpRequest();
-                
-                xhr.open('POST', app.urlApi+'enviarmsg',true);
-                xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
-
-                var params = "token="+app.token+
-                            "&"+dadosForm;
-                
-                // INICIO AJAX VANILLA
-                xhr.onreadystatechange = () => {
-
-                if(xhr.readyState == 4) {
-
-                    if(xhr.status == 200) {
-
-                        console.log("OPERAÇÃO REALIZADA COM SUCESSO");
-                        console.log(JSON.parse(xhr.responseText));
-
-                        document.getElementById('sucessoEnvioMsg').click();                      
-                        
-                    }else{
+                                <a href="" class="d-flex mb-3" data-filter-item data-filter-name="todos Halley Hart" style="padding-top:26px">
                     
-                        console.log("SEM SUCESSO enviarCobrancaPix()");
-                        console.log(JSON.parse(xhr.responseText));
+                                    <div class="resumo-letra-contato">
+                                        H
+                                    </div>
+                                    <div>
+                                        <h5 class="font-16 font-600">Halley Hart</h5>
+                                        <p class="line-height-s mt-1 opacity-90">Pedido #3922</p>
+                                    </div>
+                                    <div class="align-self-center ps-3">
+                                        <i class="fa fa-angle-right opacity-20"></i>
+                                    </div>
+                                </a>
 
-                        document.getElementById('msgErroLoginSenha').click();
-
-                    }
-
-                }
-            }; // FINAL AJAX VANILLA
-
-            /* EXECUTA */
-            xhr.send(params);
-
-
-    }
-
-    addContato(form){
-
-                var dadosForm = $(form).serialize();
-                var idUsuario = localStorage.getItem("idUsuario");
-
-                // CONFIGURAÇÕES AJAX VANILLA
-                let xhr = new XMLHttpRequest();
-                
-                xhr.open('POST', app.urlApi+'pefisa/add-numero/',true);
-                xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
-
-                var params = "token="+app.token+
-                            "&id_usuario="+idUsuario+"&"+dadosForm;
-                
-                // INICIO AJAX VANILLA
-                xhr.onreadystatechange = () => {
-
-                if(xhr.readyState == 4) {
-
-                    if(xhr.status == 200) {
-
-                        console.log("OPERAÇÃO REALIZADA COM SUCESSO, RETORNO DOS DADOS DO CONTATO ADICIONADO");
-                        console.log(JSON.parse(xhr.responseText));
-
-                        var dados = JSON.parse(xhr.responseText);
-
-                        // SALVAR DADOS NA SESSÃO
-                        localStorage.setItem("nomeCobranca",dados.dados[0].nome);
-                        localStorage.setItem("numeroCobranca",dados.dados[0].numero);
-                        localStorage.setItem("idContato",dados.dados[0].id);
-
-                        document.getElementById('sucessoEnvioMsg').click();                      
-                        
-                    }else{
+                                <a href="" class="d-flex mb-3" data-filter-item data-filter-name="todos Fernanda Paiola" style="padding-top:26px">
                     
-                        console.log("SEM SUCESSO addContato()");
-                        console.log(JSON.parse(xhr.responseText));
+                                    <div class="resumo-letra-contato">
+                                        F
+                                    </div>
+                                    <div>
+                                        <h5 class="font-16 font-600">Fernanda Paiola</h5>
+                                        <p class="line-height-s mt-1 opacity-90">Pedido #3923</p>
+                                    </div>
+                                    <div class="align-self-center ps-3">
+                                        <i class="fa fa-angle-right opacity-20"></i>
+                                    </div>
+                                </a>
 
-                        document.getElementById('msgErroLoginSenha').click();
-
-                    }
-
-                }
-            }; // FINAL AJAX VANILLA
-
-            /* EXECUTA */
-            xhr.send(params);
-
-    }
-
-    getMeuPix(){
-
-        var idUsuario    = localStorage.getItem("idUsuario");
-        var dadosUsuario = JSON.parse(localStorage.getItem("dadosUsuario"));
-
-        var chave_pix     = dadosUsuario.chave_pix;
-        var chave_pix_info = dadosUsuario.info_chave_pix;
-
-        $("#chave_pix").val(chave_pix);
-        $("#info_chave_pix").val(chave_pix_info);
-
-    }
-
-    getMeusDados(){
-
-        var idUsuario    = localStorage.getItem("idUsuario");
-        var dadosUsuario = JSON.parse(localStorage.getItem("dadosUsuario"));
-
-        var nome     = dadosUsuario.nome;
-        var email    = dadosUsuario.email;
-        var celular  = dadosUsuario.celular;
-        var senha    = dadosUsuario.senha;
-
-        $("#nome").val(nome);
-        $("#celular").val(celular);
-        $("#form1a").val(email);
-        $("#form1ab").val(senha);
-
-    }
-
-    salvarPix(form){
-
-                var dadosForm = $(form).serialize();
-                var idUsuario = localStorage.getItem("idUsuario");
-
-                var dadosUsuario = JSON.parse(localStorage.getItem("dadosUsuario"));
-
-                var chave_pix      = $("#chave_pix").val();
-                var chave_pix_info = $("#info_chave_pix").val();
-
-                dadosUsuario.chave_pix      = chave_pix;
-                dadosUsuario.info_chave_pix = chave_pix_info;
-
-                // ATUALIZAR AS INFORMAÇÕES DO USUÁRIO NA MEMORIA
-                localStorage.setItem("dadosUsuario",JSON.stringify(dadosUsuario));
-
-                // CONFIGURAÇÕES AJAX VANILLA
-                let xhr = new XMLHttpRequest();
-                
-                xhr.open('POST', app.urlApi+'pefisa/salvar-pix/',true);
-                xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
-
-                var params = "token="+app.token+
-                            "&id_usuario="+idUsuario+"&"+dadosForm;
-                
-                // INICIO AJAX VANILLA
-                xhr.onreadystatechange = () => {
-
-                if(xhr.readyState == 4) {
-
-                    if(xhr.status == 200) {
-
-                        console.log("OPERAÇÃO REALIZADA COM SUCESSO");
-                        console.log(JSON.parse(xhr.responseText));
-
-                        document.getElementById('sucessoEnvioMsg').click();                      
-                        
-                    }else{
+                                <a href="" class="d-flex mb-3" data-filter-item data-filter-name="todos Jorginho Vans" style="padding-top:26px">
                     
-                        console.log("SEM SUCESSO salvarPix()");
-                        console.log(JSON.parse(xhr.responseText));
-
-                        document.getElementById('msgErroLoginSenha').click();
-
-                    }
-
-                }
-            }; // FINAL AJAX VANILLA
-
-            /* EXECUTA */
-            xhr.send(params);
-
-    }
-
-    salvarMeusDados(form){
-
-                var dadosForm = $(form).serialize();
-                var idUsuario = localStorage.getItem("idUsuario");
-
-                // CONFIGURAÇÕES AJAX VANILLA
-                let xhr = new XMLHttpRequest();
-                
-                xhr.open('POST', app.urlApi+'pefisa/editar-meus-dados/',true);
-                xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
-
-                var params = "token="+app.token+
-                            "&id_usuario="+idUsuario+"&"+dadosForm;
-                
-                // INICIO AJAX VANILLA
-                xhr.onreadystatechange = () => {
-
-                if(xhr.readyState == 4) {
-
-                    if(xhr.status == 200) {
-
-                        console.log("OPERAÇÃO REALIZADA COM SUCESSO");
-                        console.log(JSON.parse(xhr.responseText));
-
-                        var dados = JSON.parse(xhr.responseText);
-
-                        // SALVAR DADOS NA SESSÃO
-                        localStorage.setItem("dadosUsuario",JSON.stringify(dados.dados[0]));
-
-                        document.getElementById('sucessoEnvioMsg').click();                      
+                                    <div class="resumo-letra-contato">
+                                        J
+                                    </div>
+                                    <div>
+                                        <h5 class="font-16 font-600">Jorginho Vans</h5>
+                                        <p class="line-height-s mt-1 opacity-90">Pedido #3924</p>
+                                    </div>
+                                    <div class="align-self-center ps-3">
+                                        <i class="fa fa-angle-right opacity-20"></i>
+                                    </div>
+                                </a>
                         
-                    }else{
-                    
-                        console.log("SEM SUCESSO salvarMeusDados()");
-                        console.log(JSON.parse(xhr.responseText));
+            `);
 
-                        document.getElementById('msgErroLoginSenha').click();
 
-                    }
-
-                }
-            }; // FINAL AJAX VANILLA
-
-            /* EXECUTA */
-            xhr.send(params);
 
     }
 
-    removerContato(idContato){
-
-                // CONFIGURAÇÕES AJAX VANILLA
-                let xhr = new XMLHttpRequest();
-                
-                xhr.open('POST', app.urlApi+'pefisa/remover-numero/',true);
-                xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
-
-                var params = "token="+app.token+
-                            "&id_numero="+idContato;
-                
-                // INICIO AJAX VANILLA
-                xhr.onreadystatechange = () => {
-
-                if(xhr.readyState == 4) {
-
-                    if(xhr.status == 200) {
-
-                        console.log("OPERAÇÃO REALIZADA COM SUCESSO");
-                        console.log(JSON.parse(xhr.responseText));
-
-                        location.href="dashboard.html";                     
-                        
-                    }else{
-                    
-                        console.log("SEM SUCESSO removerContato()");
-                        console.log(JSON.parse(xhr.responseText));
-
-                        document.getElementById('msgErroLoginSenha').click();
-
-                    }
-
-                }
-            }; // FINAL AJAX VANILLA
-
-            /* EXECUTA */
-            xhr.send(params);
-
-    }
 
 }

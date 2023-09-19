@@ -1,7 +1,7 @@
 var pscLat = 0;
 var pscLon = 0;
 
-var app = new App(1, "PEFISA", 
+var app = new App(1, "ATOMIC LABS", 
 					 "1.0.0", 
 					 "HIBRIDO",
 					 "HOMOLOGACAO",
