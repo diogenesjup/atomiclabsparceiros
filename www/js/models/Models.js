@@ -239,7 +239,7 @@ class Models{
                                     </div>
                                     <div>
                                         <h5 class="font-16 font-600">Diogenes Junior</h5>
-                                        <p class="line-height-s mt-1 opacity-90">Pedido #3920</p>
+                                        <p class="line-height-s mt-1 opacity-90">Pedido #3920 <span style="display: block;color: #118f2d;font-size: 12px;padding-top: 0px;">Comissão R$12 (6%)</span></p>
                                     </div>
                                     <div class="align-self-center ps-3">
                                         <i class="fa fa-angle-right opacity-20"></i>
@@ -253,7 +253,7 @@ class Models{
                                     </div>
                                     <div>
                                         <h5 class="font-16 font-600">Ygor Kaza</h5>
-                                        <p class="line-height-s mt-1 opacity-90">Pedido #3921</p>
+                                        <p class="line-height-s mt-1 opacity-90">Pedido #3921 <span style="display: block;color: #118f2d;font-size: 12px;padding-top: 0px;">Comissão R$12 (6%)</span></p>
                                     </div>
                                     <div class="align-self-center ps-3">
                                         <i class="fa fa-angle-right opacity-20"></i>
@@ -267,7 +267,7 @@ class Models{
                                     </div>
                                     <div>
                                         <h5 class="font-16 font-600">Halley Hart</h5>
-                                        <p class="line-height-s mt-1 opacity-90">Pedido #3922</p>
+                                        <p class="line-height-s mt-1 opacity-90">Pedido #3922 <span style="display: block;color: #118f2d;font-size: 12px;padding-top: 0px;">Comissão R$12 (6%)</span></p>
                                     </div>
                                     <div class="align-self-center ps-3">
                                         <i class="fa fa-angle-right opacity-20"></i>
@@ -281,7 +281,7 @@ class Models{
                                     </div>
                                     <div>
                                         <h5 class="font-16 font-600">Fernanda Paiola</h5>
-                                        <p class="line-height-s mt-1 opacity-90">Pedido #3923</p>
+                                        <p class="line-height-s mt-1 opacity-90">Pedido #3923 <span style="display: block;color: #118f2d;font-size: 12px;padding-top: 0px;">Comissão R$12 (6%)</span></p>
                                     </div>
                                     <div class="align-self-center ps-3">
                                         <i class="fa fa-angle-right opacity-20"></i>
@@ -295,7 +295,77 @@ class Models{
                                     </div>
                                     <div>
                                         <h5 class="font-16 font-600">Jorginho Vans</h5>
-                                        <p class="line-height-s mt-1 opacity-90">Pedido #3924</p>
+                                        <p class="line-height-s mt-1 opacity-90">Pedido #3924 <span style="display: block;color: #118f2d;font-size: 12px;padding-top: 0px;">Comissão R$12 (6%)</span></p>
+                                    </div>
+                                    <div class="align-self-center ps-3">
+                                        <i class="fa fa-angle-right opacity-20"></i>
+                                    </div>
+                                </a>
+
+                                <a href="" class="d-flex mb-3" data-filter-item data-filter-name="todos Diogenes Junior" style="padding-top:26px">
+                        
+                                    <div class="resumo-letra-contato">
+                                        D
+                                    </div>
+                                    <div>
+                                        <h5 class="font-16 font-600">Diogenes Junior</h5>
+                                        <p class="line-height-s mt-1 opacity-90">Pedido #3920 <span style="display: block;color: #118f2d;font-size: 12px;padding-top: 0px;">Comissão R$12 (6%)</span></p>
+                                    </div>
+                                    <div class="align-self-center ps-3">
+                                        <i class="fa fa-angle-right opacity-20"></i>
+                                    </div>
+                                </a>
+
+                                <a href="" class="d-flex mb-3" data-filter-item data-filter-name="todos Ygor Kaza" style="padding-top:26px">
+                    
+                                    <div class="resumo-letra-contato">
+                                        Y
+                                    </div>
+                                    <div>
+                                        <h5 class="font-16 font-600">Ygor Kaza</h5>
+                                        <p class="line-height-s mt-1 opacity-90">Pedido #3921 <span style="display: block;color: #118f2d;font-size: 12px;padding-top: 0px;">Comissão R$12 (6%)</span></p>
+                                    </div>
+                                    <div class="align-self-center ps-3">
+                                        <i class="fa fa-angle-right opacity-20"></i>
+                                    </div>
+                                </a>
+
+                                <a href="" class="d-flex mb-3" data-filter-item data-filter-name="todos Halley Hart" style="padding-top:26px">
+                    
+                                    <div class="resumo-letra-contato">
+                                        H
+                                    </div>
+                                    <div>
+                                        <h5 class="font-16 font-600">Halley Hart</h5>
+                                        <p class="line-height-s mt-1 opacity-90">Pedido #3922 <span style="display: block;color: #118f2d;font-size: 12px;padding-top: 0px;">Comissão R$12 (6%)</span></p>
+                                    </div>
+                                    <div class="align-self-center ps-3">
+                                        <i class="fa fa-angle-right opacity-20"></i>
+                                    </div>
+                                </a>
+
+                                <a href="" class="d-flex mb-3" data-filter-item data-filter-name="todos Fernanda Paiola" style="padding-top:26px">
+                    
+                                    <div class="resumo-letra-contato">
+                                        F
+                                    </div>
+                                    <div>
+                                        <h5 class="font-16 font-600">Fernanda Paiola</h5>
+                                        <p class="line-height-s mt-1 opacity-90">Pedido #3923 <span style="display: block;color: #118f2d;font-size: 12px;padding-top: 0px;">Comissão R$12 (6%)</span></p>
+                                    </div>
+                                    <div class="align-self-center ps-3">
+                                        <i class="fa fa-angle-right opacity-20"></i>
+                                    </div>
+                                </a>
+
+                                <a href="" class="d-flex mb-3" data-filter-item data-filter-name="todos Jorginho Vans" style="padding-top:26px">
+                    
+                                    <div class="resumo-letra-contato">
+                                        J
+                                    </div>
+                                    <div>
+                                        <h5 class="font-16 font-600">Jorginho Vans</h5>
+                                        <p class="line-height-s mt-1 opacity-90">Pedido #3924 <span style="display: block;color: #118f2d;font-size: 12px;padding-top: 0px;">Comissão R$12 (6%)</span></p>
                                     </div>
                                     <div class="align-self-center ps-3">
                                         <i class="fa fa-angle-right opacity-20"></i>
