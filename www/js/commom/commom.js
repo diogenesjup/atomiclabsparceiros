@@ -1,3 +1,29 @@
+function abrirUrlBrowser(url){
+
+  var options = "location=yes,hidden=yes,beforeload=yes";
+  var ref = cordova.InAppBrowser.open(url, "_blank", options);
+
+}
+
+
+function copiarCodigo(seletor){
+
+  var copyTextarea = document.querySelector(seletor);
+  copyTextarea.focus();
+  copyTextarea.select();
+
+  try {
+    var successful = document.execCommand('copy');
+    var msg = successful ? 'successful' : 'unsuccessful';
+    console.log("Copiado");
+    alert("CÓDIGO COPIADO!");
+  } catch (err) {
+    console.log('Oops, unable to copy');
+  }
+
+}
+
+
 function enviarCobrancaPix(form){
 
     // SERIALIZAR O FORMULARIO PARA ENVIAR PARA O SERVIDOR

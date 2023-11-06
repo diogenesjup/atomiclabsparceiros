@@ -4,7 +4,7 @@
 <widget xmlns     = "http://www.w3.org/ns/widgets"
         xmlns:gap = "http://phonegap.com/ns/1.0"
         id        = "com.diogenesjunior.atomiclabsparceiros"
-        version   = "1.0.0">
+        version   = "1.2.0">
 
         <!-- LEMBRAR DE MUDAR O APP ID ANTES DE SUBIR O APP NAS LOJAS -->
 
@@ -32,7 +32,7 @@
     <preference name="exit-on-suspend"            value="false" />          
     <preference name="disable-cursor"             value="false" />         
     <preference name="android-installLocation"    value="auto" />     
-    <preference name="StatusBarBackgroundColor"   value="#f7525c" />
+    <preference name="StatusBarBackgroundColor"   value="#f1ebdf" />
     <preference name="android-minSdkVersion"      value="25" />
     <preference name="android-targetSdkVersion"   value="30" />
     <preference name="AndroidXEnabled"            value="true" />

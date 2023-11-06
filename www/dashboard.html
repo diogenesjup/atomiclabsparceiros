@@ -67,11 +67,11 @@ ysyss
 <link rel='stylesheet' type="text/css" href="css/dzstooltip.css"/>
 <link rel='stylesheet' type="text/css" href="css/dzscalendar.css"/>
 
-<meta name="theme-color" content="#f7525c">
+<meta name="theme-color" content="#f7525c" >
 <!--<link rel="apple-touch-icon" sizes="180x180" href="app/icons/icon-192x192.png">-->
 </head>
 
-<body class="theme-light" data-highlight="highlight-red">
+<body class="theme-light" data-highlight="highlight-red" style="">
 
 <div id="preloader"><div class="spinner-border color-highlight" role="status"></div></div>
 
@@ -162,14 +162,14 @@ ysyss
                             <div class="caixa-saldo">
                                 <h2>
                                     <small>SEU SALDO</small>
-                                    R$ 120,00</h2>
+                                    R$ 0,00</h2>
                             </div>
                         </div>
                         <div class="diogenes-col-6" style="padding: 5px;">
                             <div class="caixa-saldo caixa-saldo-futuros">
                                 <h2>
                                     <small>SALDO FUTURO</small>
-                                    R$ 99,25</h2>
+                                    R$ 0,00</h2>
                             </div>
                         </div>
                    
@@ -182,7 +182,7 @@ ysyss
         
             <div class=" mx-0">
                 <div class="content">
-                    <h1 style="margin-bottom: -17px;">Últimas Vendas</h1>
+                    <h1 style="margin-bottom: -17px;font-family: 'gothambold' !important;color:#000 !important;">Últimas Vendas</h1>
                 </div>
             </div>
 
@@ -273,6 +273,47 @@ ysyss
     </div> 
     <!-- ERRO GERAL -->
 
+    <div id="menu-share-modal"
+         class="menu menu-box-modal rounded-m"
+         data-menu-width="350"
+         data-menu-height="400">
+        <div class="menu-title">
+            <p class="color-highlight">Clique para</p>
+            <h1>Compartilhar</h1>
+            <a href="#" class="close-menu"><i class="fa fa-times-circle"></i></a>
+        </div>
+        <div class="divider divider-margins mt-3 mb-0"></div>
+        <div class="content mt-0">
+            <div class="list-group list-custom-small">
+                <a href="auto_generated">
+                    <i class="shareToFacebook external-link fab fa-facebook-f font-12 bg-facebook color-white shadow-l rounded-l"></i>
+                    <span>Facebook</span>
+                    <i class="fa fa-angle-right me-2"></i>
+                </a>
+                <a href="auto_generated">
+                    <i class="shareToTwitter external-link fab fa-twitter font-12 bg-twitter color-white shadow-l rounded-l"></i>
+                    <span>Twitter</span>
+                    <i class="fa fa-angle-right me-2"></i>
+                </a>
+                <a href="auto_generated">
+                    <i class="shareToWhatsApp external-link fab fa-whatsapp font-12 bg-whatsapp color-white shadow-l rounded-l"></i>
+                    <span>WhatsApp</span>
+                    <i class="fa fa-angle-right me-2"></i>
+                </a>
+                <a href="auto_generated">
+                    <i class="shareToMail external-link fa fa-envelope font-12 bg-mail color-white shadow-l rounded-l"></i>
+                    <span>Email</span>
+                    <i class="fa fa-angle-right me-2"></i>
+                </a>
+                <a href="#" class="close-menu border-0">
+                    <i class="fa fa-times font-12 bg-red-dark color-white shadow-l rounded-l"></i>
+                    <span>Close</span>
+                    <i class="fa fa-angle-right me-2"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+
 <script type="text/javascript" src="assets/js/jquery-3.4.1.min.js"></script>
 <script type="text/javascript" src="assets/js/tether.min.js"></script>
 
@@ -304,6 +345,7 @@ ysyss
 setTimeout(function(){
 
     app.models.getContatos();
+    app.models.getDescontos();
 
 }, 5000);
 
