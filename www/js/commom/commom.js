@@ -1,6 +1,6 @@
 function abrirUrlBrowser(url){
 
-  var options = "location=yes,hidden=yes,beforeload=yes";
+  var options = "location=yes,hidden=no";
   var ref = cordova.InAppBrowser.open(url, "_blank", options);
 
 }
