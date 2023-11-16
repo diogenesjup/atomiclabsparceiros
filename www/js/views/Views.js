@@ -89,6 +89,7 @@ class Views{
                                     <div class="card mb-0 rounded-0 bg-24" data-card-height="250" style="height: 250px;background:url('${produto.featured_image}') #f2f2f2 no-repeat;background-size:cover;backgroud-position:center center;">
                                         <div class="card-bottom">
                                             <a href="" onclick="abrirUrlBrowser('https://atomiclabs.com.br/?p=${produto.product_id}')" class="float-end btn btn-m font-700 bg-white rounded-s color-black mb-2 me-2">VER NO SITE</a>
+                                            <a href="#" data-menu="menu-share-modal" class="float-end btn btn-m font-700 bg-white rounded-s color-black mb-2 me-2">COMPARTILHAR</a>
                                         </div>
                                     </div>
                                     <div class="content">
@@ -102,7 +103,7 @@ class Views{
                                         </p>
                                         <p>
                                             <span style="display: block;color: #118f2d;font-size: 12px;padding-top: 0px;font-weight: bold;font-size:21px">
-                                                    Até ${descontos.max}% de comissão
+                                                   Até ${descontos.cupons[2].comissao_que_o_vendedor_ganha}% de comissão e ${descontos.max}% de desconto
                                             </span>
                                         </p>
                                         

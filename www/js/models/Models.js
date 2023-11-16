@@ -244,8 +244,8 @@ class Models{
                                                                 ${produto.comissao_dif_val}% de comissão!
                                                             </span>`
                                                             : `
-                                                                <span style="display: block;color: #118f2d;font-size: 12px;padding-top: 0px;font-weight: bold;margin-top: -30px;margin-bottom: 19px;">
-                                                                    Até ${descontos.max}% de comissão
+                                                                <span style="display: block;color: #118f2d;font-size: 12px;padding-top: 4px;font-weight: bold;margin-top: -30px;margin-bottom: 19px;line-height:14px;">
+                                                                    Até ${descontos.cupons[2].comissao_que_o_vendedor_ganha}% de comissão e ${descontos.max}% de desconto
                                                                 </span>
                                                             `
                                                         }
