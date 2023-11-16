@@ -95,6 +95,22 @@ class App {
 
     }
     
+
+    salvarMeusDados(form){
+
+        // EXIBIR O ALERTA DE CARREGANDO
+        var toastID = document.getElementById('toast-carregando');
+        toastID = new bootstrap.Toast(toastID);
+        toastID.show();
+        
+        //this.models.salvarMeusDados(form);
+        setTimeout(function(){ 
+            document.getElementById('sucessoEnvioMsg').click(); 
+        }, 5000);
+
+        
+
+    }
     
 
     logoff(){

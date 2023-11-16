@@ -67,11 +67,11 @@ ysyss
 <link rel='stylesheet' type="text/css" href="css/dzstooltip.css"/>
 <link rel='stylesheet' type="text/css" href="css/dzscalendar.css"/>
 
-<meta name="theme-color" content="#f7525c">
+<meta name="theme-color" content="#f7525c" >
 <!--<link rel="apple-touch-icon" sizes="180x180" href="app/icons/icon-192x192.png">-->
 </head>
 
-<body class="theme-light" data-highlight="highlight-red">
+<body class="theme-light" data-highlight="highlight-red" style="">
 
 <div id="preloader"><div class="spinner-border color-highlight" role="status"></div></div>
 
@@ -107,97 +107,98 @@ ysyss
 
     <div class="page-content">
 
-        <!-- PESQUISA -->
-        <div class="content mt-0 mb-0" style="margin-top: 12px !important;margin-bottom: 24px !important;">
-            <div class="search-box search-dark shadow-xl border-0 bg-theme rounded-sm bottom-0">
-                <i class="fa fa-search"></i>
-                <input type="text" class="border-0" placeholder="Faça uma pesquisa" data-search>
-            </div>   
-            <div class="search-results disabled-search-list">
-                <div class="list-group list-custom-large mb-0" id="listaContatosPesquisa">
-                   
-                    <!--
-                    <a href="enviar.html" class="d-flex mb-3" data-filter-item data-filter-name="todos André andre an" style="padding-top:26px">
-                        
-                        <div>
-                            <img src="images/pictures/6s.jpg" width="60" class="rounded-xl me-3" style="width: 60px;height: 60px;margin-right: 10px;margin-top: -17px;">
-                        </div>
-                        <div>
-                            <h5 class="font-16 font-600">André Garrido</h5>
-                            <p class="line-height-s mt-1 opacity-70">(11) 9 8713-3509</p>
-                        </div>
-                        <div class="align-self-center ps-3">
-                            <i class="fa fa-angle-right opacity-20"></i>
-                        </div>
-                    </a>
-                    -->
-                    
-
-                </div>
-            </div>
-            <div class="search-no-results disabled mt-4">
-                <div class="card card-style mx-0">
-                    <div class="content">
-                        <p class="mb-n1 font-600 color-highlight">Desculpe, nada encontrado.</p>
-                        <h1>Sem resultados</h1>
-                        <p>
-                            Sua pesquisa não retornou resultados, tente novamente com outro critério de pesquisa.
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- PESQUISA -->
-        
+       
         
 
         <!-- HISTORIES-->
         <div class="content mt-0 mb-0">
 
 
-            
-
 
         
             <div class=" mx-0">
                 <div class="content">
-                    <h1 style="margin-bottom: 20px;margin-top:20px;font-family: 'gothambold' !important;color:#000 !important;" id="produtosTitle">
-                        Produtos
-                    </h1>
-
+                    <h1 style="margin-bottom: -17px;font-family: 'gothambold' !important;color:#000 !important;">Solicitar Saque</h1>
                 </div>
             </div>
 
-            <div class="row mb-0" id="produtosAtomicContinaer">
-
-                <div class="carregando-contatos text-center">
-                    <i class="fa fa-sync fa-spin me-3"></i> carregando produtos
-                </div>
-                <div class="carregando-contatos-vazio text-center" style="display: none;">
-                    Nenhum produto encontrado...
-                </div>
-
-                <!-- ITEM 
-                <div class="col-6 pe-2">
-                    <div class="card card-style mx-0">
-                        <img src="https://atomiclabs.com.br/wp-content/uploads/2023/09/8-1-1024x1024.png" class="img-fluid">
-                        <div class="px-2">
-                            <p class="color-highlight font-600 mb-n1 pt-1">Suplementos</p>
-                            <h2 style="margin-bottom: -1px;">Força Atomica</h2>
-                            <h5 class="font-14">R$349,90</h5>
-                            <p class="font-11 line-height-s">
-                                Whey 1,5kg + Creatina 300g
-                            </p><span style="display: block;color: #118f2d;font-size: 12px;padding-top: 0px;font-weight: bold;margin-top: -30px;margin-bottom: 19px;">6% de comissão! (R$17,99)</span>
-                            <a href="#" data-menu="menu-share-modal" class="btn btn-s btn-full border-highlight rounded-s color-highlight mb-3"><i class="fa fa-bullhorn" aria-hidden="true"></i> QRCODE</a>
-                            <a href="#" data-menu="menu-share-modal" class="btn btn-s btn-full border-highlight rounded-s color-highlight mb-3"><i class="fa fa-bullhorn" aria-hidden="true"></i> LINK</a>
-                        </div>
+            <div class="diogenes-row">
+                <div class="diogenes-col-12" style="padding: 5px;">
+                    <div class="caixa-saldo">
+                        <h2>
+                            <small>SEU SALDO</small>
+                            R$ 100,99</h2>
                     </div>
                 </div>
-              ITEM -->
+                
+            
+            </div>
 
-               
+            <div class="diogenes-row actions-dashboard">
+                <div class="diogenes-col-6">
+                    <a href="" onclick="confirmacaoPreSaque();" title="Saque" class="btn btn-primary">
+                        Sacar
+                    </a>
+                </div>
+                <div class="diogenes-col-6">
+                    <a href="relatorios.html" title="Relatórios" class="btn btn-default">
+                        Relatórios
+                    </a>
+                </div>
+            </div>
+           
+            <div class="loop-saques">
+
+                <h2>
+                    SAQUES<br>SOLICITADOS
+                </h2>
+
+                <div class="diogenes-row">
+                    <div class="diogenes-col-12">
+
+                        <!-- SAQUE -->
+                        <div class="caixa-solicitacao-saque">
+                               <div class="diogenes-row">
+                                    <div class="diogenes-col-7">
+                                            <h3>#SAQUE990</h3>
+                                            <p>
+                                                <b>Data solicitação:</b> 16/11/2023 <br>
+                                                <b>Valor:</b> R$40,00
+                                            </p>
+                                    </div> 
+                                    <div class="diogenes-col-5">
+                                        EM ANDAMENTO <img src="images/time.svg" alt="">
+                                    </div> 
+                               </div>
+                        </div>
+                        <!-- SAQUE -->
+
+
+                        <!-- SAQUE -->
+                        <div class="caixa-solicitacao-saque">
+                            <div class="diogenes-row">
+                                 <div class="diogenes-col-7">
+                                         <h3>#SAQUE989</h3>
+                                         <p>
+                                             <b>Data solicitação:</b> 15/11/2023 <br>
+                                             <b>Valor:</b> R$10,00
+                                         </p>
+                                 </div> 
+                                 <div class="diogenes-col-5">
+                                     CONCLUIDO <img src="images/6586148_accept_check_good_mark_ok_icon.svg" style="background:none;" alt="">
+                                 </div> 
+                            </div>
+                     </div>
+                     <!-- SAQUE -->
+
+
+
+
+                    </div>
+                </div>
 
             </div>
+           
 
             <!--
             <a href="enviar.html" class="d-flex mb-3">
@@ -229,6 +230,7 @@ ysyss
         <p>&nbsp;</p>
         <a href="#" id="erroGeral" data-menu="erroGeralMD"></a>
         <a href="#" id="sucessoEnvioMsg" data-menu="sucessoEnvioMsgMD"></a>
+        <a href="#" id="confirmarSaqueMenu" data-menu="confirmarSaqueMD"></a>
 
     </div>
     <!-- End of Page Content-->
@@ -239,6 +241,25 @@ ysyss
        </div>
 
 </div>
+
+    <!-- CONFIRMAR SAQUE -->
+    <div id="confirmarSaqueMD" class="menu menu-box-bottom rounded-m" 
+    data-menu-height="180" 
+    data-menu-effect="menu-over">
+        <div class="menu-title">
+        <p class="color-highlight">Confirmar Saque?</p>
+        <h1>dssds</h1>
+        <a href="#" class="close-menu"><i class="fa fa-times-circle"></i></a>
+        </div>
+        <div class="content mt-0 mb-0">
+        <p class="pe-3">
+            Tem certeza que deseja solicitar o saque para a sua conta corrente cadastrada?
+        </p>        
+        </div>
+    </div> 
+    <!-- CONFIRMAR SAQUE -->
+
+
 
     <!-- ERRO AJAX -->
     <div id="msgErroAjax" class="menu menu-box-bottom rounded-m" 
@@ -276,7 +297,6 @@ ysyss
         </div>
     </div> 
     <!-- ERRO GERAL -->
-
 
     <div id="menu-share-modal"
          class="menu menu-box-modal rounded-m"
@@ -319,6 +339,23 @@ ysyss
         </div>
     </div>
 
+
+    <div id="sucessoEnvioMsgMD" class="menu menu-box-bottom rounded-m" 
+    data-menu-height="220" 
+    data-menu-effect="menu-over">
+            <div class="menu-title">
+                <i class="fa fa-check-circle scale-box float-start me-3 ms-3 fa-3x color-green-dark"></i>
+                <p class="color-highlight">Atualizar meus dados</p>
+                <h1>Deu certo</h1>
+                <a href="#" class="close-menu"><i class="fa fa-times-circle"></i></a>
+            </div>
+            <div class="content mt-0 mb-0">
+                <p class="pe-3">
+                    As suas informações foram atualizadas com sucesso.
+                </p>
+            </div>
+    </div> 
+
 <script type="text/javascript" src="assets/js/jquery-3.4.1.min.js"></script>
 <script type="text/javascript" src="assets/js/tether.min.js"></script>
 
@@ -351,8 +388,7 @@ ysyss
 // CARREGAR CONTATOS
 setTimeout(function(){
 
-    app.models.getContatos();
-    app.models.getProdutos();
+    
 
 }, 5000);
 

@@ -75,7 +75,13 @@ class Views{
                             `;
                         }).join('');
 
+                        
+                        $(`#produtosTitle`).html(`
 
+                            Ver Produto
+                        
+                        `);
+                        $(`#produtosTitle a`).fadeIn(500);
 
                         $(`#produtosAtomicContinaer`).html(`
                         

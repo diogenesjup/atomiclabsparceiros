@@ -6,6 +6,22 @@ function abrirUrlBrowser(url){
 }
 
 
+function confirmacaoPreSaque(){
+
+      // EXIBIR O ALERTA DE CARREGANDO
+      var toastID = document.getElementById('toast-carregando');
+      toastID = new bootstrap.Toast(toastID);
+      toastID.show();
+      
+      //this.models.salvarMeusDados(form);
+      setTimeout(function(){ 
+          document.getElementById('sucessoEnvioMsg').click(); 
+      }, 5000);
+
+}
+
+
+
 function copiarCodigo(seletor){
 
   var copyTextarea = document.querySelector(seletor);
@@ -22,6 +38,41 @@ function copiarCodigo(seletor){
   }
 
 }
+
+function preContatos(opcao){
+
+        jQuery(".carregando-contatos").show();
+        jQuery("#listaContatosListagem").html(` `);
+
+        setTimeout(function(){
+          app.models.getContatos();
+        }, 5000);
+
+        const labels = ["A","B","C","D","E","F","G",];
+        const data = {
+          labels: labels,
+          datasets: [{
+            label: 'Sua performance de vendas no período',
+            data: [65, 59, 80, 81, 56, 55, 40],
+            fill: false,
+            borderColor: 'rgb(75, 192, 192)',
+            tension: 0.1
+          }]
+        };
+
+        const config = {
+          type: 'line',
+          data: data,
+        };
+
+        const ctx = document.getElementById('myChart');
+        
+        setTimeout(function(){
+          new Chart(ctx, {config});
+        }, 7500);
+
+}
+
 
 
 function enviarCobrancaPix(form){
