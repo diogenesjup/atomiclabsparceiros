@@ -92,7 +92,7 @@ class Views{
                                             <a href="#" data-menu="menu-share-modal" class="float-end btn btn-m font-700 bg-white rounded-s color-black mb-2 me-2">COMPARTILHAR</a>
                                         </div>
                                     </div>
-                                    <div class="content">
+                                    <div class="content-d" style="padding-right:13px;">
                                         <p class="font-600 color-highlight mb-n1">Sobre o produto:</p>
                                         <h1 class="font-30 font-800">${produto.title}</h1>
                                         <p class="font-14 mb-3">

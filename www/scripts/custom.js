@@ -341,11 +341,13 @@ document.addEventListener('DOMContentLoaded', () => {
         menuFunction();
 
         function activateMenus(){
+            /*
             const menuActive = document.querySelectorAll('[data-menu-active]')[0];
             if(menuActive){
                 var selectedMenu = menuActive.getAttribute('data-menu-active');
                 document.querySelectorAll('#'+selectedMenu)[0].classList.add('active-nav');
             }
+            */
         }
 
         //Back Button

@@ -110,6 +110,14 @@ class Models{
                                             var statusImg = saque.status === 'Em andamento' ? 'images/time.svg' : 'images/6586148_accept_check_good_mark_ok_icon.svg';
                                             var statusBg  = saque.status === 'Em andamento' ? '' : 'style="background:none;"';
 
+                                            if(saque.status == 'Aguardando'){
+                                                statusImg = 'images/time.svg';
+                                            }
+
+                                            if(saque.status != 'Aguardando'){
+                                                statusImg = 'images/6586148_accept_check_good_mark_ok_icon.svg';
+                                            }
+
                                             var saqueHTML = `
                                                 <div class="caixa-solicitacao-saque">
                                                     <div class="diogenes-row">

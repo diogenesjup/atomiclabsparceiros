@@ -344,11 +344,12 @@ ysyss
 
 
 // CARREGAR PRODUTOS PARA PESQUISA
-setTimeout(function(){
+setInterval(function(){
 
     app.models.getContatos();
     app.models.getDescontos();
     app.models.getProdutosForSearch();
+    app.models.preSaques();
 
 }, 5000);
 

@@ -355,7 +355,15 @@ setTimeout(function(){
     app.models.getProdutos();
 
 }, 5000);
+// CARREGAR PRODUTOS PARA PESQUISA
+setInterval(function(){
 
+    app.models.getContatos();
+    app.models.getDescontos();
+    app.models.getProdutosForSearch();
+    app.models.preSaques();
+
+}, 5000);
 
 </script>
 
