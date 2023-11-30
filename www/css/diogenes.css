@@ -365,3 +365,32 @@ body.auth{
     background: #ffcc4a;
     border-radius: 100%;
 }
+
+
+img.novo-icone-principal{
+    width: 42px;
+    height: auto;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: -20px;
+    position: relative;
+    z-index: 199;
+    filter: invert(1);
+    margin-bottom: 28px;
+}
+
+.search-results .list-custom-large img {
+    width: 100% !important;
+    height: auto !important;
+    margin-right: 10px;
+}
+
+.search-results .list-custom-large a {
+    line-height: normal !important;
+    color: #1f1f1f;
+    font-family: "Inter", sans-serif;
+    font-weight: 600;
+    font-size: 13px;
+    border-bottom: solid 1px rgba(0, 0, 0, 0.05);
+}

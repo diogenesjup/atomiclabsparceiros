@@ -78,7 +78,7 @@ ysyss
     <div class="page-content header-clear-medium">
 
         <div class="brand-logo">
-            <img src="images/logo.png" alt="Atomic Labs Parceiros" style="width: 170px !important;">
+            <img src="assets/images/Prancheta-1.png" alt="Atomic Labs Parceiros" style="width: 230px !important;">
         </div>
 
         <div class="card card-style">
@@ -102,7 +102,7 @@ ysyss
 
                     <div class="input-style no-borders has-icon no-validate mb-4">
                         <i class="fa fa-lock"></i>
-                        <input type="password" class="form-control" id="form1a" name="senha" required placeholder="Senha">
+                        <input type="password" class="form-control" id="form1b" name="senha" required placeholder="Senha">
                         <label for="form1a" class="color-highlight">Senha</label>
                         <i class="fa fa-times disabled invalid color-red-dark"></i>
                         <i class="fa fa-check disabled valid color-green-dark"></i>
@@ -116,7 +116,7 @@ ysyss
 
                 <div class="row pt-3 mb-3">
                     <div class="col-6 text-start">
-                        <a href="" onclick="abrirUrlBrowser(`https://parceiro.atomiclabs.com.br/`)" class="color-highlight" style="line-height: 19px;display: block;">Esqueceu sua senha?</a>
+                        <a href="" onclick="abrirUrlBrowser(`https://parceiro.atomiclabs.com.br/autenticacao/esqueci-minha-senha/`)" class="color-highlight" style="line-height: 19px;display: block;">Esqueceu sua senha?</a>
                     </div>
                     <div class="col-6 text-end">
                         <a href="" onclick="abrirUrlBrowser(`https://parceiro.atomiclabs.com.br/`)" class="color-highlight">Criar uma conta</a>
@@ -124,6 +124,7 @@ ysyss
                 </div>
 
                 <a href="#" id="msgErroLoginSenha" data-menu="msgErroLoginSenhaMD"></a>
+                <a href="#" id="msgErroLoginSenha2" data-menu="msgErroLoginSenhaMD2"></a>
                 <a href="#" id="msgErroAjax" data-menu="msgErroAjaxMD"></a>
                 <a href="#" id="msgSucessoReset" data-menu="msgSucessoResetMD"></a>
                 <a href="#" id="msgCadastro" data-menu="msgErroCadastroMD"></a>
@@ -155,6 +156,23 @@ ysyss
 
 </div>
 
+
+    <!-- ERRO DE LOGIN E SENHA -->
+    <div id="msgErroLoginSenhaMD2" class="menu menu-box-bottom rounded-m" 
+         data-menu-height="180" 
+         data-menu-effect="menu-over">
+        <div class="menu-title">
+            <p class="color-highlight">Oops</p>
+            <h1>Login incorreto</h1>
+            <a href="#" class="close-menu"><i class="fa fa-times-circle"></i></a>
+        </div>
+        <div class="content mt-0 mb-0">
+            <p class="pe-3">
+               E-mail ou senha incorretos. Verifique as informações inseridas e tente novamente.
+            </p>        
+        </div>
+    </div> 
+    <!-- ERRO DE LOGIN E SENHA -->
 
     <!-- ERRO DE LOGIN E SENHA -->
     <div id="msgErroLoginSenhaMD" class="menu menu-box-bottom rounded-m" 

@@ -87,7 +87,7 @@ ysyss
     <div id="footer-bar" class="footer-bar-6">
        
         <a href="" onclick="location.href='dashboard.html'"><i class="fa fa-search"></i><span>Pesquisar</span></a>
-        <a href="" onclick="location.href='produtos.html'" class="circle-nav active-nav"><i class="fa fa-shopping-cart"></i><span>Produtos</span></a>
+        <a href="" onclick="location.href='produtos.html'" class="circle-nav active-nav"> <img src="images/logo.png" class="novo-icone-principal" alt="Atomic Labs parceiros"> <span>Produtos</span></a>
       
         <a href="#" data-menu="menu-main"><i class="fa fa-bars"></i><span>Mais</span></a>
     </div>
@@ -128,8 +128,8 @@ ysyss
     
                 <div class="input-style no-borders has-icon no-validate mb-4">
                     <i class="fa fa-user"></i>
-                    <input type="text" class="form-control" id="nome" name="nome" required placeholder="Nome do titular">
-                    <label for="nome" class="color-highlight">Nome do titular</label>
+                    <input type="text" class="form-control" id="nomeTitular" name="nome" required placeholder="Nome do titular">
+                    <label for="nomeTitular" class="color-highlight">Nome do titular</label>
                     <i class="fa fa-times disabled invalid color-red-dark"></i>
                     <i class="fa fa-check disabled valid color-green-dark"></i>
                     <em>(obrigatório)</em>
@@ -146,14 +146,14 @@ ysyss
 
                 <div class="input-style no-borders  no-validate mb-4">
                   
-                    <select class="form-control" id="form1a" required>
+                    <select class="form-control" id="tipoChavePix" required>
                         <option value="">Tipo de Chave</option>
                         <option value="chave-email">Chave E-mail</option>
                         <option value="chave-celular">Chave Celular</option>
                         <option value="chave-cpf">Chave CPF</option>
                         <option value="chave-aleatoria">Chave Aleatória</option>
                     </select>
-                    <label for="form1a" class="color-highlight">Tipo de Chave PIX</label>
+                    <label for="tipoChavePix" class="color-highlight">Tipo de Chave PIX</label>
                     <i class="fa fa-times disabled invalid color-red-dark"></i>
                     <i class="fa fa-check disabled valid color-green-dark"></i>
                     <em>(obrigatório)</em>
@@ -352,13 +352,22 @@ ysyss
 
 <script>
 
-// CARREGAR CONTATOS
-setTimeout(function(){
+        // CARREGAR CONTATOS
+        setTimeout(function(){
 
-    
+                if(localStorage.getItem("vendedorChavePix")!="" && localStorage.getItem("vendedorChavePix")!=null){
 
-}, 5000);
+                     var vendedorChavePix = localStorage.getItem("vendedorChavePix");
+                     var vendedorTitularPix = localStorage.getItem("vendedorTitularPix");
+                     var vendedorTipoChavePix = localStorage.getItem("vendedorTipoChavePix");
 
+                     $("#nomeTitular").val(vendedorTitularPix);
+                     $("#chavePix").val(vendedorChavePix);
+                     $("#tipoChavePix").val(vendedorChavePix);
+
+                }
+
+        }, 2000);
 
 </script>
 

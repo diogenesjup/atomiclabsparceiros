@@ -87,14 +87,14 @@ ysyss
     <div id="footer-bar" class="footer-bar-6">
        
         <a href="" onclick="location.href='dashboard.html'"><i class="fa fa-search"></i><span>Pesquisar</span></a>
-        <a href="" onclick="location.href='produtos.html'" class="circle-nav active-nav"><i class="fa fa-shopping-cart"></i><span>Produtos</span></a>
+        <a href="" onclick="location.href='produtos.html'" class="circle-nav active-nav"> <img src="images/logo.png" class="novo-icone-principal" alt="Atomic Labs parceiros"> <span>Produtos</span></a>
       
         <a href="#" data-menu="menu-main"><i class="fa fa-bars"></i><span>Mais</span></a>
     </div>
     
 
     <div class="page-title page-title-fixed">
-        <h1><a href="dashboard.html"><img src="images/logo.png" alt="Atomic Labs Parceiros"></a></h1>
+        <h1><a href="dashboard.html"><img src="assets/images/Prancheta-1.png" alt="Atomic Labs Parceiros" style="width: 200px;"></a></h1>
        
         <a href="#" class="page-title-icon shadow-xl bg-theme color-theme" data-menu="menu-main"><i class="fa fa-bars"></i></a>
     </div>
@@ -114,25 +114,9 @@ ysyss
                 <input type="text" class="border-0" placeholder="Faça uma pesquisa" data-search>
             </div>   
             <div class="search-results disabled-search-list">
-                <div class="list-group list-custom-large mb-0" id="listaContatosPesquisa">
-                   
-                    <!--
-                    <a href="enviar.html" class="d-flex mb-3" data-filter-item data-filter-name="todos André andre an" style="padding-top:26px">
-                        
-                        <div>
-                            <img src="images/pictures/6s.jpg" width="60" class="rounded-xl me-3" style="width: 60px;height: 60px;margin-right: 10px;margin-top: -17px;">
-                        </div>
-                        <div>
-                            <h5 class="font-16 font-600">André Garrido</h5>
-                            <p class="line-height-s mt-1 opacity-70">(11) 9 8713-3509</p>
-                        </div>
-                        <div class="align-self-center ps-3">
-                            <i class="fa fa-angle-right opacity-20"></i>
-                        </div>
-                    </a>
-                    -->
-                    
-
+                <div class="list-group content list-custom-large mb-0" id="">
+                    <div class="row mb-0" id="listaContatosPesquisa">
+                    </div>
                 </div>
             </div>
             <div class="search-no-results disabled mt-4">
@@ -159,17 +143,17 @@ ysyss
                 <div class="content">
                     <div class="diogenes-row">
                         <div class="diogenes-col-6" style="padding: 5px;">
-                            <div class="caixa-saldo">
+                            <div class="caixa-saldo" id="saldoVendedor">
                                 <h2>
                                     <small>SEU SALDO</small>
-                                    R$ 100,99</h2>
+                                    R$ __,__</h2>
                             </div>
                         </div>
                         <div class="diogenes-col-6" style="padding: 5px;">
-                            <div class="caixa-saldo caixa-saldo-futuros">
+                            <div class="caixa-saldo caixa-saldo-futuros" id="saldoFuturoVendedor">
                                 <h2>
                                     <small>SALDO FUTURO</small>
-                                    R$ 14,00</h2>
+                                    R$ __,__</h2>
                             </div>
                         </div>
                    
@@ -203,8 +187,8 @@ ysyss
             <div class="carregando-contatos text-center">
                 <i class="fa fa-sync fa-spin me-3"></i> carregando suas vendas
             </div>
-            <div class="carregando-contatos-vazio text-center" style="display: none;">
-                Você ainda não tem nenhum contato cadastrado.
+            <div class="carregando-contatos-vazio" style="display: none;text-align: left;font-size: 15px;padding-left: 16px;">
+                Você ainda não tem nenhuma venda.
             </div>
 
             <div id="listaContatosListagem"></div>
@@ -357,11 +341,14 @@ ysyss
 
 <script>
 
-// CARREGAR CONTATOS
+
+
+// CARREGAR PRODUTOS PARA PESQUISA
 setTimeout(function(){
 
     app.models.getContatos();
     app.models.getDescontos();
+    app.models.getProdutosForSearch();
 
 }, 5000);
 

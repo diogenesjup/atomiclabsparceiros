@@ -102,6 +102,8 @@ class App {
         var toastID = document.getElementById('toast-carregando');
         toastID = new bootstrap.Toast(toastID);
         toastID.show();
+
+        app.models.salvarDadosBancarios();
         
         //this.models.salvarMeusDados(form);
         setTimeout(function(){ 

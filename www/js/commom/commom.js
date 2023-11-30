@@ -8,10 +8,23 @@ function abrirUrlBrowser(url){
 
 function confirmacaoPreSaque(){
 
+      var idVendedorLogado = localStorage.getItem("idVendedorLogado");
+      var vendedorChavePix = localStorage.getItem("vendedorChavePix");
+      var vendedorTitularPix = localStorage.getItem("vendedorTitularPix");
+      var vendedorTipoChavePix = localStorage.getItem("vendedorTipoChavePix");
+      var vendedorCpfTitularPix = localStorage.getItem("vendedorCpfTitularPix");
+
+      if(vendedorChavePix=="" || vendedorChavePix==null){
+         location.href="dados-bancarios.html";
+         return;
+      }
+
       // EXIBIR O ALERTA DE CARREGANDO
       var toastID = document.getElementById('toast-carregando');
       toastID = new bootstrap.Toast(toastID);
       toastID.show();
+
+      app.models.enviarSaque();
       
       //this.models.salvarMeusDados(form);
       setTimeout(function(){ 

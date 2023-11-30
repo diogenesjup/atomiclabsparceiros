@@ -85,9 +85,8 @@ ysyss
     </div>
 
     <div id="footer-bar" class="footer-bar-6">
-       
         <a href="" onclick="location.href='dashboard.html'"><i class="fa fa-search"></i><span>Pesquisar</span></a>
-        <a href="" onclick="location.href='produtos.html'" class="circle-nav active-nav"><i class="fa fa-shopping-cart"></i><span>Produtos</span></a>
+        <a href="" onclick="location.href='produtos.html'" class="circle-nav active-nav"> <img src="images/logo.png" class="novo-icone-principal" alt="Atomic Labs parceiros"> <span>Produtos</span></a>
       
         <a href="#" data-menu="menu-main"><i class="fa fa-bars"></i><span>Mais</span></a>
     </div>
@@ -124,10 +123,10 @@ ysyss
 
             <div class="diogenes-row">
                 <div class="diogenes-col-12" style="padding: 5px;">
-                    <div class="caixa-saldo">
+                    <div class="caixa-saldo" id="saldoVendedor">
                         <h2>
                             <small>SEU SALDO</small>
-                            R$ 100,99</h2>
+                            R$ __,__</h2>
                     </div>
                 </div>
                 
@@ -154,49 +153,14 @@ ysyss
                 </h2>
 
                 <div class="diogenes-row">
-                    <div class="diogenes-col-12">
+                    <div class="diogenes-col-12" id="saquesSolicitados">
 
-                        <!-- SAQUE -->
-                        <div class="caixa-solicitacao-saque">
-                               <div class="diogenes-row">
-                                    <div class="diogenes-col-7">
-                                            <h3>#SAQUE990</h3>
-                                            <p>
-                                                <b>Data solicitação:</b> 16/11/2023 <br>
-                                                <b>Valor:</b> R$40,00
-                                            </p>
-                                    </div> 
-                                    <div class="diogenes-col-5">
-                                        EM ANDAMENTO <img src="images/time.svg" alt="">
-                                    </div> 
-                               </div>
+                        <div class="carregando-contatos text-center">
+                            <i class="fa fa-sync fa-spin me-3"></i> carregando saques
                         </div>
-                        <!-- SAQUE -->
-
-
-                        <!-- SAQUE -->
-                        <div class="caixa-solicitacao-saque">
-                            <div class="diogenes-row">
-                                 <div class="diogenes-col-7">
-                                         <h3>#SAQUE989</h3>
-                                         <p>
-                                             <b>Data solicitação:</b> 15/11/2023 <br>
-                                             <b>Valor:</b> R$10,00
-                                         </p>
-                                 </div> 
-                                 <div class="diogenes-col-5">
-                                     CONCLUIDO <img src="images/6586148_accept_check_good_mark_ok_icon.svg" style="background:none;" alt="">
-                                 </div> 
-                            </div>
-                     </div>
-                     <!-- SAQUE -->
-
-
-
 
                     </div>
                 </div>
-
             </div>
            
 
@@ -388,7 +352,7 @@ ysyss
 // CARREGAR CONTATOS
 setTimeout(function(){
 
-    
+    app.models.preSaques();
 
 }, 5000);
 
