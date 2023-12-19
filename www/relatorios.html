@@ -78,7 +78,7 @@ ysyss
 <div id="page">
 
     <div class="header header-auto-show header-fixed header-logo-center">
-        <a href="dashboard.html" class="header-title">
+        <a href="dashboard.html" onclick="app.views.dashboard()" class="header-title">
             <img src="images/logo.png" alt="Atomic Labs parceiros">
         </a>
         <a href="#" data-menu="menu-main" class="header-icon header-icon-1"><i class="fas fa-bars"></i></a>
@@ -86,15 +86,15 @@ ysyss
 
     <div id="footer-bar" class="footer-bar-6">
        
-        <a href="" onclick="location.href='dashboard.html'"><i class="fa fa-search"></i><span>Pesquisar</span></a>
-        <a href="" onclick="location.href='produtos.html'" class="circle-nav active-nav"> <img src="images/logo.png" class="novo-icone-principal" alt="Atomic Labs parceiros"> <span>Produtos</span></a>
+        <a href="dashboard.html" onclick="app.views.dashboard()"><i class="fa fa-search"></i><span>Pesquisar</span></a>
+        <a href="produtos.html" onclick="app.views.produtos()" class="circle-nav active-nav"> <img src="images/logo.png" class="novo-icone-principal" alt="Atomic Labs parceiros"> <span>Produtos</span></a>
       
         <a href="#" data-menu="menu-main"><i class="fa fa-bars"></i><span>Mais</span></a>
     </div>
     
 
     <div class="page-title page-title-fixed">
-        <h1><a href="dashboard.html"><img src="images/logo.png" alt="Atomic Labs Parceiros"></a></h1>
+        <h1><a href="dashboard.html" onclick="app.views.dashboard()"><img src="images/logo.png" alt="Atomic Labs Parceiros"></a></h1>
        
         <a href="#" class="page-title-icon shadow-xl bg-theme color-theme" data-menu="menu-main"><i class="fa fa-bars"></i></a>
     </div>
@@ -307,15 +307,7 @@ setTimeout(function(){
 
 }, 5000);
 
-// CARREGAR PRODUTOS PARA PESQUISA
-setInterval(function(){
 
-    app.models.getContatos();
-    app.models.getDescontos();
-    app.models.getProdutosForSearch();
-    app.models.preSaques();
-
-}, 5000);
 </script>
 
 <script src="cordova.js"></script>

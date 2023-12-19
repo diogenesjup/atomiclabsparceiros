@@ -35,6 +35,52 @@ function confirmacaoPreSaque(){
 
 
 
+// PESQUISA
+function pesquisa(){
+
+    var inputPesquisa = document.querySelector('.search-box input[type="text"]');
+    var divResultados = document.querySelector('.search-results');
+    var listaContatos = document.getElementById('listaContatosPesquisa');
+  
+    inputPesquisa.addEventListener('input', function() {
+        var textoPesquisa = inputPesquisa.value.toLowerCase();
+  
+        // Ativar ou desativar a lista de resultados
+        if (textoPesquisa === '') {
+            divResultados.classList.add('disabled-search-list');
+        } else {
+            divResultados.classList.remove('disabled-search-list');
+        }
+  
+        // Filtrar itens
+        var itens = listaContatos.querySelectorAll('.col-6');
+        var itemVisivel = false;
+  
+        itens.forEach(function(item) {
+            var nomeItem = item.getAttribute('data-filter-name').toLowerCase();
+            if (nomeItem.includes(textoPesquisa)) {
+                item.style.display = '';
+                itemVisivel = true;
+            } else {
+                item.style.display = 'none';
+            }
+        });
+  
+        // Mostrar ou ocultar mensagem de 'nenhum resultado'
+        var divSemResultados = document.querySelector('.search-no-results');
+        if (itemVisivel) {
+            divSemResultados.classList.add('disabled');
+        } else {
+            divSemResultados.classList.remove('disabled');
+        }
+    });
+ 
+
+}
+
+
+
+
 function copiarCodigo(seletor){
 
   var copyTextarea = document.querySelector(seletor);

@@ -39,13 +39,21 @@ class Models{
 
                              if(dados.sucesso==200){
 
-                                localStorage.setItem("idVendedorLogado",dados.id_usuario);
-                                localStorage.setItem("vendedorChavePix",dados.chave_pix);
-                                localStorage.setItem("vendedorTitularPix",dados.titular_pix);
-                                localStorage.setItem("vendedorTipoChavePix",dados.tipo_chave_pix);
-                                localStorage.setItem("vendedorCpfTitularPix",dados.cpf_titular_pix);
+                                if(dados.pavs_is_vendedor=="sim"){
 
-                                location.href="dashboard.html";
+                                        localStorage.setItem("idVendedorLogado",dados.id_usuario);
+                                        localStorage.setItem("vendedorChavePix",dados.chave_pix);
+                                        localStorage.setItem("vendedorTitularPix",dados.titular_pix);
+                                        localStorage.setItem("vendedorTipoChavePix",dados.tipo_chave_pix);
+                                        localStorage.setItem("vendedorCpfTitularPix",dados.cpf_titular_pix);
+
+                                        location.href="dashboard.html";
+
+                                }else{
+                                       
+                                    document.getElementById('msgErroLoginSenha3').click();
+
+                                }
 
                              }else{
                                  
@@ -95,7 +103,19 @@ class Models{
 
                               if (dados.sucesso == 200) {
                                         var saquesContainer = document.getElementById('saquesSolicitados');
-                                        saquesContainer.innerHTML = ''; // Limpa o conteúdo existente
+
+                                        if(saquesContainer){
+
+                                            saquesContainer.innerHTML = ''; // Limpa o conteúdo existente
+
+                                        }
+
+                                        if(dados.saldo==""){
+                                            dados.saldo = 0;
+                                        }
+                                        if(dados.saldo_bloqueado==""){
+                                            dados.saldo_bloqueado = 0;
+                                        }
 
                                         $("#saldoVendedor").html(`
 
@@ -105,6 +125,17 @@ class Models{
                                             </h2>
 
                                         `);
+
+
+                                        $("#saldoFuturoVendedor").html(`
+
+                                            <h2>
+                                                <small>SALDO BLOQUEADO</small>
+                                                R$ ${dados.saldo_bloqueado}
+                                            </h2>
+
+                                        `);
+
 
                                         dados.saques.forEach(saque => {
                                             var statusImg = saque.status === 'Em andamento' ? 'images/time.svg' : 'images/6586148_accept_check_good_mark_ok_icon.svg';
@@ -135,7 +166,10 @@ class Models{
                                                 </div>
                                             `;
 
-                                            saquesContainer.innerHTML += saqueHTML;
+                                            if(saquesContainer){ 
+                                                saquesContainer.innerHTML += saqueHTML;
+                                            }
+
                                         });
 
                                     } else {
@@ -496,7 +530,7 @@ class Models{
                                                             </span>`
                                                             : `
                                                                 <span style="display: block;color: #118f2d;font-size: 12px;padding-top: 4px;font-weight: bold;margin-top: -30px;margin-bottom: 19px;line-height:14px;">
-                                                                    Até ${descontos.cupons[2].comissao_que_o_vendedor_ganha}% de comissão e ${descontos.max}% de desconto
+                                                                    Até ${descontos.max}% de desconto
                                                                 </span>
                                                             `
                                                         }
@@ -592,7 +626,7 @@ class Models{
                                                             </span>`
                                                             : `
                                                                 <span style="display: block;color: #118f2d;font-size: 12px;padding-top: 4px;font-weight: bold;margin-top: -30px;margin-bottom: 19px;line-height:14px;">
-                                                                    Até ${descontos.cupons[2].comissao_que_o_vendedor_ganha}% de comissão e ${descontos.max}% de desconto
+                                                                    Até ${descontos.max}% de desconto
                                                                 </span>
                                                             `
                                                         }
@@ -665,6 +699,14 @@ class Models{
                                 $(".carregando-contatos").hide();
                                 $(".carregando-contatos-vazio").hide();
 
+                                if(dados.saldo==""){
+                                    dados.saldo = 0;
+                                }
+
+                                if(dados.saldo_bloqueio==""){
+                                    dados.saldo_bloqueio = 0;
+                                }
+
                                 $("#saldoVendedor").html(`
 
                                     <h2>
@@ -677,8 +719,8 @@ class Models{
                                 $("#saldoFuturoVendedor").html(`
 
                                     <h2>
-                                        <small>SALDO FUTURO</small>
-                                        R$ ${dados.saldo_futuro}
+                                        <small>SALDO BLOQUEADO</small>
+                                        R$ ${dados.saldo_bloqueio}
                                     </h2>
 
                                 `);

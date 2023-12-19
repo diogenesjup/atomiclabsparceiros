@@ -17,7 +17,45 @@ class Views{
 	animarTransicao(){
 		new WOW().init();
 	}
-  
+    
+    dashboard(){
+        
+        app.models.getContatos();
+        app.models.getDescontos();
+        //app.models.getProdutosForSearch();
+        app.models.getProdutosForSearch();
+        pesquisa();
+    }
+
+    produtos(){
+        app.models.getContatos();
+        app.models.getProdutos();
+        app.models.getProdutosForSearch();
+        pesquisa();
+    }
+
+    saques(){
+        app.models.preSaques();
+    }
+
+    relatorios(){
+        app.models.getContatos();
+    app.models.getDescontos();
+    }
+
+    dadosBancarios(){
+        if(localStorage.getItem("vendedorChavePix")!="" && localStorage.getItem("vendedorChavePix")!=null){
+
+            var vendedorChavePix = localStorage.getItem("vendedorChavePix");
+            var vendedorTitularPix = localStorage.getItem("vendedorTitularPix");
+            var vendedorTipoChavePix = localStorage.getItem("vendedorTipoChavePix");
+
+            $("#nomeTitular").val(vendedorTitularPix);
+            $("#chavePix").val(vendedorChavePix);
+            $("#tipoChavePix").val(vendedorChavePix);
+
+       }
+    }
 
 /**
 *  ------------------------------------------------------------------------------------------------
@@ -29,6 +67,8 @@ class Views{
 *  ------------------------------------------------------------------------------------------------
 */
     verProduto(idProduto){
+
+        $('.search-results').addClass("disabled-search-list");
 
         $('#produtosAtomicContinaer').html(`
         
@@ -69,7 +109,7 @@ class Views{
                             <textarea class="codigo-cupom-name-${desconto.desconto_aplicado_ao_carrinho}" style="display:none;">COLAB-A2023-2-R${desconto.desconto_aplicado_ao_carrinho}</textarea>
 
                             <small style="display: block;background: #fff000;width: 420px;max-width: 100%;text-align: center;padding: 3px;margin-top: 5px;font-weight: bold;font-size: 14px;margin-bottom: 37px;">
-                                Com esse cupom (desconto de ${desconto.desconto_aplicado_ao_carrinho}% no carrinho), você recebe ${desconto.comissao_que_o_vendedor_ganha}% de comissão
+                                Com esse cupom (desconto de ${desconto.desconto_aplicado_ao_carrinho}% no carrinho), 
                             </small>
 
                             `;
@@ -103,7 +143,7 @@ class Views{
                                         </p>
                                         <p>
                                             <span style="display: block;color: #118f2d;font-size: 12px;padding-top: 0px;font-weight: bold;font-size:21px">
-                                                   Até ${descontos.cupons[2].comissao_que_o_vendedor_ganha}% de comissão e ${descontos.max}% de desconto
+                                                  Até ${descontos.max}% de desconto
                                             </span>
                                         </p>
                                         

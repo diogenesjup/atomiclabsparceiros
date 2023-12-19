@@ -86,15 +86,15 @@ ysyss
 
     <div id="footer-bar" class="footer-bar-6">
        
-        <a href="" onclick="location.href='dashboard.html'"><i class="fa fa-search"></i><span>Pesquisar</span></a>
-        <a href="" onclick="location.href='produtos.html'" class="circle-nav active-nav"> <img src="images/logo.png" class="novo-icone-principal" alt="Atomic Labs parceiros"> <span>Produtos</span></a>
+        <a href="dashboard.html" onclick="app.views.dashboard();"><i class="fa fa-search"></i><span>Pesquisar</span></a>
+        <a href="produtos.html" onclick="app.views.produtos();"class="circle-nav active-nav"> <img src="images/logo.png" class="novo-icone-principal" alt="Atomic Labs parceiros"> <span>Produtos</span></a>
       
         <a href="#" data-menu="menu-main"><i class="fa fa-bars"></i><span>Mais</span></a>
     </div>
     
 
     <div class="page-title page-title-fixed">
-        <h1><a href="dashboard.html"><img src="assets/images/Prancheta-1.png" alt="Atomic Labs Parceiros" style="width: 200px;"></a></h1>
+        <h1><a href="dashboard.html" onclick="app.views.dashboard();"><img src="assets/images/Prancheta-1.png" alt="Atomic Labs Parceiros" style="width: 200px;"></a></h1>
        
         <a href="#" class="page-title-icon shadow-xl bg-theme color-theme" data-menu="menu-main"><i class="fa fa-bars"></i></a>
     </div>
@@ -111,7 +111,7 @@ ysyss
         <div class="content mt-0 mb-0" style="margin-top: 12px !important;margin-bottom: 24px !important;">
             <div class="search-box search-dark shadow-xl border-0 bg-theme rounded-sm bottom-0">
                 <i class="fa fa-search"></i>
-                <input type="text" class="border-0" placeholder="Faça uma pesquisa" data-search>
+                <input type="text" class="border-0" placeholder="Faça uma pesquisa">
             </div>   
             <div class="search-results disabled-search-list">
                 <div class="list-group content list-custom-large mb-0" id="">
@@ -136,7 +136,7 @@ ysyss
         
 
         <!-- HISTORIES-->
-        <div class="content mt-0 mb-0">
+        <div class="content mt-0 mb-0" id="produtosAtomicContinaer">
 
 
             <div class=" mx-0">
@@ -162,12 +162,12 @@ ysyss
 
                     <div class="diogenes-row actions-dashboard">
                         <div class="diogenes-col-6">
-                            <a href="solicitar-saque.html" title="Saque" class="btn btn-primary">
+                            <a href="solicitar-saque.html" onclick="app.views.saques();" title="Saque" class="btn btn-primary">
                                 Saque
                             </a>
                         </div>
                         <div class="diogenes-col-6">
-                            <a href="relatorios.html" title="Relatórios" class="btn btn-default">
+                            <a href="relatorios.html" onclick="app.views.relatorios();" title="Relatórios" class="btn btn-default">
                                 Relatórios
                             </a>
                         </div>
@@ -344,12 +344,13 @@ ysyss
 
 
 // CARREGAR PRODUTOS PARA PESQUISA
-setInterval(function(){
+setTimeout(function(){
 
     app.models.getContatos();
     app.models.getDescontos();
     app.models.getProdutosForSearch();
-    app.models.preSaques();
+    pesquisa();
+    //app.models.preSaques();
 
 }, 5000);
 
