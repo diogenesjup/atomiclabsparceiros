@@ -223,6 +223,7 @@ class Models{
                          if(xhr.status == 200) {
 
                              console.log("OPERAÇÃO REALIZADA COM SUCESSO");
+
                              console.log(JSON.parse(xhr.responseText));
 
                              var dados = JSON.parse(xhr.responseText);
