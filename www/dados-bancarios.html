@@ -94,7 +94,7 @@ ysyss
     
 
     <div class="page-title page-title-fixed">
-        <h1><a href="dashboard.html" onclick="app.views.dashboard()"><img src="images/logo.png" alt="Atomic Labs Parceiros"></a></h1>
+        <h1><a href="dashboard.html" onclick="app.views.dashboard()"><img src="assets/images/Prancheta-1.png" alt="Atomic Labs Parceiros"></a></h1>
        
         <a href="#" class="page-title-icon shadow-xl bg-theme color-theme" data-menu="menu-main"><i class="fa fa-bars"></i></a>
     </div>
@@ -354,8 +354,9 @@ ysyss
 
         // CARREGAR CONTATOS
         setTimeout(function(){
-
-                
+            
+            // MENU LATERAL NÃO CONSEGUE INSTANCIAR VIA MODULOS
+            app.views.dadosBancarios();  
 
         }, 2000);
 

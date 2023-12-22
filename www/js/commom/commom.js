@@ -107,12 +107,12 @@ function preContatos(opcao){
           app.models.getContatos();
         }, 5000);
 
-        const labels = ["A","B","C","D","E","F","G",];
+        const labels = ["Junho","Julho","Agosto","Setembro","Outubro","Novembro","Dezembro",];
         const data = {
           labels: labels,
           datasets: [{
             label: 'Sua performance de vendas no período',
-            data: [65, 59, 80, 81, 56, 55, 40],
+            data: [65, 59, 80, 81, 156, 55, 40],
             fill: false,
             borderColor: 'rgb(75, 192, 192)',
             tension: 0.1
@@ -127,8 +127,8 @@ function preContatos(opcao){
         const ctx = document.getElementById('myChart');
         
         setTimeout(function(){
-          new Chart(ctx, {config});
-        }, 7500);
+          new Chart(ctx, config);
+        }, 3000);
 
 }
 

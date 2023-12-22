@@ -39,8 +39,10 @@ class Views{
     }
 
     relatorios(){
+
         app.models.getContatos();
-    app.models.getDescontos();
+        app.models.getDescontos();
+
     }
 
     dadosBancarios(){
@@ -52,7 +54,7 @@ class Views{
 
             $("#nomeTitular").val(vendedorTitularPix);
             $("#chavePix").val(vendedorChavePix);
-            $("#tipoChavePix").val(vendedorChavePix);
+            $("#tipoChavePix").val(vendedorTipoChavePix);
 
        }
     }

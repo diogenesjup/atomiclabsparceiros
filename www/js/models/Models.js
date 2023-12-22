@@ -149,6 +149,22 @@ class Models{
                                                 statusImg = 'images/6586148_accept_check_good_mark_ok_icon.svg';
                                             }
 
+                                            var arquivoHtml = "";
+
+                                            if(saque.arquivo_comprovante!="" && saque.arquivo_comprovante!=null){
+                                                arquivoHtml = `
+                                                    <a 
+                                                        href="" 
+                                                        title="baixar comprovante"
+                                                        onclick="abrirUrlBrowser('${saque.arquivo_comprovante}')"
+                                                        style="color:#000;"
+                                                    >
+                                                        Baixar comprovante
+                                                    </a>
+                                                
+                                                `;
+                                            }
+
                                             var saqueHTML = `
                                                 <div class="caixa-solicitacao-saque">
                                                     <div class="diogenes-row">
@@ -156,7 +172,8 @@ class Models{
                                                             <h3>#SAQUE${saque.ID}</h3>
                                                             <p>
                                                                 <b>Data solicitação:</b> ${saque.data_solicitacao} <br>
-                                                                <b>Valor:</b> R$${saque.valor_saque}
+                                                                <b>Valor:</b> R$${saque.valor_saque} <br>
+                                                                ${arquivoHtml}
                                                             </p>
                                                         </div> 
                                                         <div class="diogenes-col-5">
