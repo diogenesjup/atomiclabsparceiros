@@ -139,10 +139,14 @@ body.auth{
     border-radius: 100%;
     font-weight: normal;
     padding-top: 9px;
-    font-size: 17px;
+    font-size: 12px;
     margin-right: 13px;
     line-height: 24px;
     font-weight: bold;
+  }
+
+  #listaContatosPesquisa .resumo-letra-contato{
+    display: none !important;
   }
 
 

@@ -78,6 +78,18 @@ function pesquisa(){
 
 }
 
+function compartilharTexto(texto) {
+  var mensagem = texto;
+  
+  // Chama o método de compartilhamento
+  window.plugins.socialsharing.share(mensagem, null, null, null,
+      function(success) {
+          console.log('Compartilhamento bem-sucedido');
+      }, function(error) {
+          console.log('Erro ao compartilhar: ' + error);
+      }
+  );
+}
 
 
 
@@ -107,12 +119,12 @@ function preContatos(opcao){
           app.models.getContatos();
         }, 5000);
 
-        const labels = ["Junho","Julho","Agosto","Setembro","Outubro","Novembro","Dezembro",];
+        const labels = ["Julho","Agosto","Setembro","Outubro","Novembro","Dezembro","Janeiro"];
         const data = {
           labels: labels,
           datasets: [{
             label: 'Sua performance de vendas no período',
-            data: [65, 59, 80, 81, 156, 55, 40],
+            data: [0, 0, 0, 0, 0, 0, parseInt(localStorage.getItem("totVendasVendedorParaGrafico"))],
             fill: false,
             borderColor: 'rgb(75, 192, 192)',
             tension: 0.1
@@ -128,7 +140,7 @@ function preContatos(opcao){
         
         setTimeout(function(){
           new Chart(ctx, config);
-        }, 3000);
+        }, 10000);
 
 }
 

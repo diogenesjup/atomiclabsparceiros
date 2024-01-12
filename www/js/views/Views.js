@@ -104,13 +104,24 @@ class Views{
                             return `
 
                             <div style="font-weight:normal;background:#fff;padding:10px;border:2px dotted #000;width:420px;max-width:100%;font-size:1.12em;line-height: 23px;text-align:center">
-                                O <b>código de cupom</b> de identificação parceiro é: <br><b>COLAB-A2023-2-R${desconto.desconto_aplicado_ao_carrinho}</b>
+                                O <b>código de cupom</b> de identificação parceiro é: <br><b>COLAB-A2023-2-R${desconto.desconto_aplicado_ao_carrinho}</b><br>
                                 <a href="" class="copiar-codigo" onclick="copiarCodigo('.codigo-cupom-name-${desconto.desconto_aplicado_ao_carrinho}')">copiar código</a>
+                                &nbsp;&nbsp;&nbsp;
+                                <a href="" 
+                                   class="copiar-codigo" 
+                                   onclick='compartilharTexto("Use o meu cupom: COLAB-A2023-2-R${desconto.desconto_aplicado_ao_carrinho} e ganhe desconto no carrinho. Acesse https://atomiclabs.com.br/?p=${produto.product_id}")'
+                                   title="compartilhar">
+                                   compartilhar
+                                </a>
                             </div>
                             
-                            <textarea class="codigo-cupom-name-${desconto.desconto_aplicado_ao_carrinho}" style="display:none;">COLAB-A2023-2-R${desconto.desconto_aplicado_ao_carrinho}</textarea>
+                            <textarea 
+                                class="codigo-cupom-name-${desconto.desconto_aplicado_ao_carrinho}" 
+                                style="height:0;width:0;opacity:0;">COLAB-A2023-2-R${desconto.desconto_aplicado_ao_carrinho}</textarea>
 
-                            <small style="display: block;background: #fff000;width: 420px;max-width: 100%;text-align: center;padding: 3px;margin-top: 5px;font-weight: bold;font-size: 14px;margin-bottom: 37px;">
+                            
+
+                            <small style="display: block;background: #f1ebdf;width: 420px;max-width: 100%;text-align: center;padding: 3px;margin-top: -18px;font-weight: normal;font-size: 14px;margin-bottom: 37px;margin-bottom: 37px;padding-top: 10px;padding-bottom: 14px;">
                                 Com esse cupom (desconto de ${desconto.desconto_aplicado_ao_carrinho}% no carrinho), 
                             </small>
 
@@ -131,7 +142,7 @@ class Views{
                                     <div class="card mb-0 rounded-0 bg-24" data-card-height="250" style="height: 250px;background:url('${produto.featured_image}') #f2f2f2 no-repeat;background-size:cover;backgroud-position:center center;">
                                         <div class="card-bottom">
                                             <a href="" onclick="abrirUrlBrowser('https://atomiclabs.com.br/?p=${produto.product_id}')" class="float-end btn btn-m font-700 bg-white rounded-s color-black mb-2 me-2">VER NO SITE</a>
-                                            <a href="#" data-menu="menu-share-modal" class="float-end btn btn-m font-700 bg-white rounded-s color-black mb-2 me-2">COMPARTILHAR</a>
+                                            <!--<a href="#" class="float-end btn btn-m font-700 bg-white rounded-s color-black mb-2 me-2">COMPARTILHAR</a>-->
                                         </div>
                                     </div>
                                     <div class="content-d" style="padding-right:13px;">
@@ -145,7 +156,7 @@ class Views{
                                         </p>
                                         <p>
                                             <span style="display: block;color: #118f2d;font-size: 12px;padding-top: 0px;font-weight: bold;font-size:21px">
-                                                  Até ${descontos.max}% de desconto
+                                                Até ${descontos.cupons[0].comissao_que_o_vendedor_ganha}% de comissão e ${descontos.max}% de desconto
                                             </span>
                                         </p>
                                         

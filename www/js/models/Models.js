@@ -141,12 +141,18 @@ class Models{
                                             var statusImg = saque.status === 'Em andamento' ? 'images/time.svg' : 'images/6586148_accept_check_good_mark_ok_icon.svg';
                                             var statusBg  = saque.status === 'Em andamento' ? '' : 'style="background:none;"';
 
+                                            
+
                                             if(saque.status == 'Aguardando'){
                                                 statusImg = 'images/time.svg';
                                             }
 
                                             if(saque.status != 'Aguardando'){
                                                 statusImg = 'images/6586148_accept_check_good_mark_ok_icon.svg';
+                                            }
+
+                                            if(saque.status == 'Cancelado'){
+                                                statusImg = 'images/222.png';
                                             }
 
                                             var arquivoHtml = "";
@@ -548,7 +554,7 @@ class Models{
                                                             </span>`
                                                             : `
                                                                 <span style="display: block;color: #118f2d;font-size: 12px;padding-top: 4px;font-weight: bold;margin-top: -30px;margin-bottom: 19px;line-height:14px;">
-                                                                    Até ${descontos.max}% de desconto
+                                                                    Até ${descontos.cupons[0].comissao_que_o_vendedor_ganha}% de comissão e ${descontos.max}% de desconto
                                                                 </span>
                                                             `
                                                         }
@@ -644,7 +650,7 @@ class Models{
                                                             </span>`
                                                             : `
                                                                 <span style="display: block;color: #118f2d;font-size: 12px;padding-top: 4px;font-weight: bold;margin-top: -30px;margin-bottom: 19px;line-height:14px;">
-                                                                    Até ${descontos.max}% de desconto
+                                                                    Até ${descontos.cupons[0].comissao_que_o_vendedor_ganha}% de comissão e ${descontos.max}% de desconto
                                                                 </span>
                                                             `
                                                         }
@@ -693,6 +699,7 @@ class Models{
                      let xhr = new XMLHttpRequest();
 
                      var idUsuario = localStorage.getItem("idVendedorLogado");
+                     
                                             
                      xhr.open('POST', "https://parceiro.atomiclabs.com.br/wp-json/atomiclabs/v1/historicos/",true);
                      xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
@@ -737,14 +744,66 @@ class Models{
                                 $("#saldoFuturoVendedor").html(`
 
                                     <h2>
-                                        <small>SALDO BLOQUEADO</small>
-                                        R$ ${dados.saldo_bloqueio}
+                                        <small>SALDO FUTURO</small>
+                                        R$ ${dados.saldo_futuro}
                                     </h2>
 
                                 `);
 
                                 if(dados.pedidos.length==0){
                                     $(".carregando-contatos-vazio").fadeIn("500"); 
+                                }else{
+
+                                    localStorage.setItem("totVendasVendedorParaGrafico",dados.pedidos.length);
+
+                                    var htmlPedidos = dados.pedidos.map(pedido => {
+
+                                        if(pedido.pedido==undefined||pedido.pedido==""){
+                                            pedido.pedido = "0000";
+                                        }
+
+                                        if(pedido.total_pedido==undefined||pedido.total_pedido==""){
+                                            pedido.total_pedido = "0,00";
+                                        }
+
+                                        if(pedido.extra_conteudos==undefined||pedido.extra_conteudos==""){
+                                            pedido.extra_conteudos = "N/A";
+                                        }
+
+                                        if(pedido.status_amigavel==undefined||pedido.status_amigavel==""){
+                                            pedido.status_amigavel = "Aguardando";
+                                        }
+
+                                        return `
+            
+                                            <a 
+                                                href="" 
+                                                class="d-flex mb-3" 
+                                                data-filter-item data-filter-name="${pedido.pedido} ${pedido.cupom}"
+                                            >
+                                                <div class="resumo-letra-contato">
+                                                    #${pedido.pedido}
+                                                </div>
+                                                <div>
+                                                    <h5 class="font-16 font-600">
+                                                        #${pedido.pedido} - ${pedido.status_amigavel}
+                                                    </h5>
+                                                    <p class="line-height-s mt-1 opacity-90">
+                                                        Total pedido: R$${pedido.total_pedido}<br>
+                                                        ${pedido.extra_conteudos}
+                                                    </p>
+                                                </div>
+                                                <div class="align-self-center ps-3">
+                                                    <i class="fa fa-angle-right opacity-20"></i>
+                                                </div>
+                                            </a>
+            
+                                        `;
+                                    }).join('');
+
+                                    $("#listaContatosListagem").html("<p style='margin-bottom:0px !important;'>&nbsp;</p>" + htmlPedidos);
+                                    $("#listaContatosPesquisa").html(htmlPedidos);
+
                                 }
 
                              }else{
