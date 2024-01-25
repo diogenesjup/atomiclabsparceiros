@@ -6,7 +6,17 @@ function abrirUrlBrowser(url){
 }
 
 
-function confirmacaoPreSaque(){
+function confirmacaoPreSaque(maxVal=0){
+
+      var valor_saque = prompt("Qual valor deseja sacar? (Valor máximo de R$"+maxVal.toFixed(2)+")");
+
+      // CONVERTER PARA FLOAT
+      valor_saque = parseFloat(valor_saque);
+
+      if(valor_saque>maxVal){
+        alert("O valor é superior ao seu saldo disponível");
+        return;
+      }
 
       var idVendedorLogado = localStorage.getItem("idVendedorLogado");
       var vendedorChavePix = localStorage.getItem("vendedorChavePix");
@@ -24,12 +34,16 @@ function confirmacaoPreSaque(){
       toastID = new bootstrap.Toast(toastID);
       toastID.show();
 
-      app.models.enviarSaque();
+      app.models.enviarSaque(valor_saque);
       
       //this.models.salvarMeusDados(form);
       setTimeout(function(){ 
           document.getElementById('sucessoEnvioMsg').click(); 
       }, 5000);
+
+      setTimeout(function(){ 
+        location.reload();
+    }, 8000);
 
 }
 

@@ -98,11 +98,36 @@ class Views{
                             }
                             p++;
                         }
+                        
+                        if(descontos.cupom_custom){
 
-
+                        }
+                        var controle = 0;
                         var htmlDescontos = descontos.cupons.map(desconto => {
-                            return `
 
+                            var htmlCustom = "";
+                            
+                            if(descontos.cupom_custom!="" && descontos.cupom_custom != undefined && controle==0){
+                                htmlCustom = `
+
+                                <div style="font-weight:normal;background:#fff;padding:10px;border:2px dotted #000;width:420px;max-width:100%;font-size:1.12em;line-height: 23px;text-align:center">
+                                    O <b>código de cupom</b> de identificação parceiro é: <br><b>${descontos.cupom_custom}</b><br>
+                                    <a href="" class="copiar-codigo" onclick="copiarCodigo('.codigo-cupom-name-${descontos.cupom_custom}')">copiar código</a>
+                                    &nbsp;&nbsp;&nbsp;
+                                    <a href="" 
+                                    class="copiar-codigo" 
+                                    onclick='compartilharTexto("Use o meu cupom: ${descontos.cupom_custom} e ganhe desconto no carrinho. Acesse https://atomiclabs.com.br/?p=${produto.product_id}")'
+                                    title="compartilhar">
+                                    compartilhar
+                                    </a>
+                                </div>
+                                
+                                `; controle++;
+                            }
+
+
+                            return `
+                                ${htmlCustom}
                             <div style="font-weight:normal;background:#fff;padding:10px;border:2px dotted #000;width:420px;max-width:100%;font-size:1.12em;line-height: 23px;text-align:center">
                                 O <b>código de cupom</b> de identificação parceiro é: <br><b>COLAB-A2023-2-R${desconto.desconto_aplicado_ao_carrinho}</b><br>
                                 <a href="" class="copiar-codigo" onclick="copiarCodigo('.codigo-cupom-name-${desconto.desconto_aplicado_ao_carrinho}')">copiar código</a>

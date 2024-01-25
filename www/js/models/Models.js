@@ -126,6 +126,8 @@ class Models{
 
                                         `);
 
+                                        $("#btnNewSolicSaque").attr("onclick",'confirmacaoPreSaque('+dados.saldo+')');
+
 
                                         $("#saldoFuturoVendedor").html(`
 
@@ -138,10 +140,9 @@ class Models{
 
 
                                         dados.saques.forEach(saque => {
+                                            
                                             var statusImg = saque.status === 'Em andamento' ? 'images/time.svg' : 'images/6586148_accept_check_good_mark_ok_icon.svg';
                                             var statusBg  = saque.status === 'Em andamento' ? '' : 'style="background:none;"';
-
-                                            
 
                                             if(saque.status == 'Aguardando'){
                                                 statusImg = 'images/time.svg';
@@ -167,7 +168,6 @@ class Models{
                                                     >
                                                         Baixar comprovante
                                                     </a>
-                                                
                                                 `;
                                             }
 
@@ -277,7 +277,7 @@ class Models{
 
 
 
-    enviarSaque(){
+    enviarSaque(valorSaque){
 
         var idUsuario    = localStorage.getItem("idVendedorLogado");
        
@@ -287,7 +287,7 @@ class Models{
                      xhr.open('POST', "https://parceiro.atomiclabs.com.br/wp-json/atomiclabs/v1/solic-saque/",true);
                      xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
 
-                     var params = "token="+app.token+"&idUsuario="+idUsuario;
+                     var params = "token="+app.token+"&idUsuario="+idUsuario+"&saldo="+valorSaque;
                      
                      // INICIO AJAX VANILLA
                      xhr.onreadystatechange = () => {
@@ -758,6 +758,8 @@ class Models{
 
                                     var htmlPedidos = dados.pedidos.map(pedido => {
 
+                                        var estilo = 'style="display:block;"';
+
                                         if(pedido.pedido==undefined||pedido.pedido==""){
                                             pedido.pedido = "0000";
                                         }
@@ -768,16 +770,19 @@ class Models{
 
                                         if(pedido.extra_conteudos==undefined||pedido.extra_conteudos==""){
                                             pedido.extra_conteudos = "N/A";
+                                            estilo = 'style="display:none;"';
                                         }
 
                                         if(pedido.status_amigavel==undefined||pedido.status_amigavel==""){
                                             pedido.status_amigavel = "Aguardando";
                                         }
 
+                                        if(pedido.extra_conteudos!="N/A"){
                                         return `
             
                                             <a 
                                                 href="" 
+                                                ${estilo}
                                                 class="d-flex mb-3" 
                                                 data-filter-item data-filter-name="${pedido.pedido} ${pedido.cupom}"
                                             >
@@ -799,6 +804,9 @@ class Models{
                                             </a>
             
                                         `;
+                                        }else{
+                                            return '';
+                                        }
                                     }).join('');
 
                                     $("#listaContatosListagem").html("<p style='margin-bottom:0px !important;'>&nbsp;</p>" + htmlPedidos);
