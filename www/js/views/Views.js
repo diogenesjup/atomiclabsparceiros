@@ -103,20 +103,22 @@ class Views{
 
                         }
                         var controle = 0;
+                        var htmlCustom = "";
+
                         var htmlDescontos = descontos.cupons.map(desconto => {
 
-                            var htmlCustom = "";
                             
-                            if(descontos.cupom_custom!="" && descontos.cupom_custom != undefined && controle==0){
+                            
+                            if(descontos.cupom_personalizado!="" && descontos.cupom_personalizado != undefined && controle==0){
                                 htmlCustom = `
 
-                                <div style="font-weight:normal;background:#fff;padding:10px;border:2px dotted #000;width:420px;max-width:100%;font-size:1.12em;line-height: 23px;text-align:center">
-                                    O <b>código de cupom</b> de identificação parceiro é: <br><b>${descontos.cupom_custom}</b><br>
-                                    <a href="" class="copiar-codigo" onclick="copiarCodigo('.codigo-cupom-name-${descontos.cupom_custom}')">copiar código</a>
+                                <div style="font-weight:normal;background:#f2f2f2;padding:10px;border:2px dotted #000;width:420px;max-width:100%;font-size:1.12em;line-height: 23px;text-align:center;margin-top:30px;margin-bottom:30px;">
+                                    <!--O <b>código de cupom</b> de identificação parceiro é: <br>--><b>${descontos.cupom_personalizado}</b><br>
+                                    <a href="" class="copiar-codigo" onclick="copiarCodigo('.codigo-cupom-name-${descontos.cupom_personalizado}')">copiar código</a>
                                     &nbsp;&nbsp;&nbsp;
                                     <a href="" 
                                     class="copiar-codigo" 
-                                    onclick='compartilharTexto("Use o meu cupom: ${descontos.cupom_custom} e ganhe desconto no carrinho. Acesse https://atomiclabs.com.br/?p=${produto.product_id}")'
+                                    onclick='compartilharTexto("Use o meu cupom: ${descontos.cupom_personalizado} e ganhe desconto no carrinho. Acesse https://atomiclabs.com.br/?p=${produto.product_id}")'
                                     title="compartilhar">
                                     compartilhar
                                     </a>
@@ -125,16 +127,41 @@ class Views{
                                 `; controle++;
                             }
 
+                            var cupomDuplicata = "";
+
+                            if(descontos.cupom_personalizado!="" && descontos.cupom_personalizado != undefined){
+                                cupomDuplicata = `
+
+                                        <div style="font-weight:normal;background:#fff;padding:10px;border:2px dotted #000;width:420px;max-width:100%;font-size:1.12em;line-height: 23px;text-align:center">
+                                            <!--O <b>código de cupom</b> de identificação parceiro é: <br>--><b>${descontos.cupom_personalizado}-${localStorage.getItem("idVendedorLogado")}-R${desconto.desconto_aplicado_ao_carrinho}</b><br>
+                                            <a href="" class="copiar-codigo" onclick="copiarCodigo('.codigo-cupom-name2-${desconto.desconto_aplicado_ao_carrinho}')">copiar código</a>
+                                            &nbsp;&nbsp;&nbsp;
+                                            <a href="" 
+                                            class="copiar-codigo" 
+                                            onclick='compartilharTexto("Use o meu cupom: ${descontos.cupom_personalizado}-${localStorage.getItem("idVendedorLogado")}-R${desconto.desconto_aplicado_ao_carrinho} e ganhe desconto no carrinho. Acesse https://atomiclabs.com.br/?p=${produto.product_id}")'
+                                            title="compartilhar">
+                                            compartilhar
+                                            </a>
+                                        </div>
+                                        
+                                        <textarea 
+                                            class="codigo-cupom-name2-${desconto.desconto_aplicado_ao_carrinho}" 
+                                            style="height:0;width:0;opacity:0;">${descontos.cupom_personalizado}-${localStorage.getItem("idVendedorLogado")}-R${desconto.desconto_aplicado_ao_carrinho}</textarea>
+
+                                `;
+                            }
 
                             return `
-                                ${htmlCustom}
+                            
+                            ${cupomDuplicata}
+
                             <div style="font-weight:normal;background:#fff;padding:10px;border:2px dotted #000;width:420px;max-width:100%;font-size:1.12em;line-height: 23px;text-align:center">
-                                O <b>código de cupom</b> de identificação parceiro é: <br><b>COLAB-A2023-2-R${desconto.desconto_aplicado_ao_carrinho}</b><br>
+                                <!--O <b>código de cupom</b> de identificação parceiro é: <br>--><b>COLAB-A2024-${localStorage.getItem("idVendedorLogado")}-R${desconto.desconto_aplicado_ao_carrinho}</b><br>
                                 <a href="" class="copiar-codigo" onclick="copiarCodigo('.codigo-cupom-name-${desconto.desconto_aplicado_ao_carrinho}')">copiar código</a>
                                 &nbsp;&nbsp;&nbsp;
                                 <a href="" 
                                    class="copiar-codigo" 
-                                   onclick='compartilharTexto("Use o meu cupom: COLAB-A2023-2-R${desconto.desconto_aplicado_ao_carrinho} e ganhe desconto no carrinho. Acesse https://atomiclabs.com.br/?p=${produto.product_id}")'
+                                   onclick='compartilharTexto("Use o meu cupom: COLAB-A2024-${localStorage.getItem("idVendedorLogado")}-R${desconto.desconto_aplicado_ao_carrinho} e ganhe desconto no carrinho. Acesse https://atomiclabs.com.br/?p=${produto.product_id}")'
                                    title="compartilhar">
                                    compartilhar
                                 </a>
@@ -142,12 +169,10 @@ class Views{
                             
                             <textarea 
                                 class="codigo-cupom-name-${desconto.desconto_aplicado_ao_carrinho}" 
-                                style="height:0;width:0;opacity:0;">COLAB-A2023-2-R${desconto.desconto_aplicado_ao_carrinho}</textarea>
+                                style="height:0;width:0;opacity:0;">COLAB-A2024-${localStorage.getItem("idVendedorLogado")}-R${desconto.desconto_aplicado_ao_carrinho}</textarea>
 
-                            
-
-                            <small style="display: block;background: #f1ebdf;width: 420px;max-width: 100%;text-align: center;padding: 3px;margin-top: -18px;font-weight: normal;font-size: 14px;margin-bottom: 37px;margin-bottom: 37px;padding-top: 10px;padding-bottom: 14px;">
-                                Com esse cupom (desconto de ${desconto.desconto_aplicado_ao_carrinho}% no carrinho), 
+                            <small style="display: block;background: #f1ebdf;width: 420px;max-width: 100%;text-align: center;padding: 3px;margin-top: 2px;font-weight: normal;font-size: 14px;margin-bottom: 37px;margin-bottom: 37px;padding-top: 10px;padding-bottom: 14px;">
+                                Com esses cupons descontos de até ${desconto.desconto_aplicado_ao_carrinho}% no carrinho 
                             </small>
 
                             `;
@@ -185,8 +210,26 @@ class Views{
                                             </span>
                                         </p>
                                         
+                                        ${htmlCustom}
+
                                         <div style="font-weight:normal;background:#f2f2f2;padding:10px;border:2px dotted #000;width:420px;max-width:100%;font-size:1.12em;line-height: 23px;text-align:center;margin-top:30px;margin-bottom:30px;">
-                                            O seu <b>código de cupom</b> de identificação parceiro é: <br><b>COLAB-A2023-2</b>
+                                            <!--O <b>código de cupom</b> de identificação parceiro é: <br>--><b>COLAB-A2024-${localStorage.getItem("idVendedorLogado")} </b><br>
+
+                                            <a href="" class="copiar-codigo" onclick="copiarCodigo('.codigo-cupom-name3')">
+                                                copiar código
+                                            </a>
+                                                &nbsp;&nbsp;&nbsp;
+                                            <a href="" 
+                                            class="copiar-codigo" 
+                                            onclick='compartilharTexto("Use o meu cupom: COLAB-A2024-${localStorage.getItem("idVendedorLogado")} e ganhe desconto no carrinho. Acesse https://atomiclabs.com.br/?p=${produto.product_id}")'
+                                            title="compartilhar">
+                                                compartilhar
+                                            </a>
+
+                                            <textarea 
+                                            class="codigo-cupom-name3" 
+                                            style="height:0;width:0;opacity:0;">COLAB-A2024-${localStorage.getItem("idVendedorLogado")}</textarea>
+
                                         </div>
                                         
                                         ${htmlDescontos}

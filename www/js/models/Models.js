@@ -457,7 +457,7 @@ class Models{
          // CONFIGURAÇÕES AJAX VANILLA
          let xhr = new XMLHttpRequest();
                                 
-         xhr.open('GET', "https://parceiro.atomiclabs.com.br/wp-json/atomiclabs/v1/vendedor/"+localStorage.getItem("idVendedorLogado"),true);
+         xhr.open('GET', "https://parceiro.atomiclabs.com.br/wp-json/atomiclabs/v1/vendedor/"+localStorage.getItem("idVendedorLogado")+"/descontos",true);
          xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
 
          var params = "token="+app.token;
@@ -533,6 +533,22 @@ class Models{
 
                                     localStorage.setItem("produtos",JSON.stringify(dados.dados));
 
+                                    var htmlExtraCupons = "";
+
+                                    if(descontos){
+                                        htmlExtraCupons = `
+                                            <span style="display: block;color: #118f2d;font-size: 12px;padding-top: 4px;font-weight: bold;margin-top: -30px;margin-bottom: 19px;line-height:14px;">
+                                                Até ${descontos.cupons[0].comissao_que_o_vendedor_ganha}% de comissão e ${descontos.max}% de desconto
+                                            </span>
+                                        `;
+                                    }else{
+                                        htmlExtraCupons = `
+                                            <span style="display: block;color: #118f2d;font-size: 12px;padding-top: 4px;font-weight: bold;margin-top: -30px;margin-bottom: 19px;line-height:14px;">
+                                                Até ${descontos.max}% de desconto
+                                            </span>
+                                        `;
+                                    }
+
                                     // PREPARAR E MONTAR O HTML
                                     // Mapear cada produto para uma string HTML e juntá-las
                                     var produtosHTML = dados.dados.map(produto => {
@@ -553,9 +569,7 @@ class Models{
                                                                 ${produto.comissao_dif_val}% de comissão!
                                                             </span>`
                                                             : `
-                                                                <span style="display: block;color: #118f2d;font-size: 12px;padding-top: 4px;font-weight: bold;margin-top: -30px;margin-bottom: 19px;line-height:14px;">
-                                                                    Até ${descontos.cupons[0].comissao_que_o_vendedor_ganha}% de comissão e ${descontos.max}% de desconto
-                                                                </span>
+                                                                ${htmlExtraCupons}
                                                             `
                                                         }
                                                         <a href="" onclick="app.views.verProduto(${produto.product_id});" class="btn btn-s btn-full border-highlight rounded-s color-highlight mb-3"><i class="fa fa-bullhorn" aria-hidden="true"></i> VER DETALHES</a>
@@ -632,6 +646,27 @@ class Models{
                                     // PREPARAR E MONTAR O HTML
                                     // Mapear cada produto para uma string HTML e juntá-las
                                     var produtosHTML = dados.dados.map(produto => {
+
+                                        var htmlExtraCupons = "";
+
+                                        if(descontos){
+                                            htmlExtraCupons = `
+
+                                                    <span style="display: block;color: #118f2d;font-size: 12px;padding-top: 4px;font-weight: bold;margin-top: -30px;margin-bottom: 19px;line-height:14px;">
+                                                        Até ${descontos.cupons[0].comissao_que_o_vendedor_ganha}% de comissão e ${descontos.max}% de desconto
+                                                    </span>
+                                            
+                                            `;
+                                        }else{
+                                            htmlExtraCupons = `
+
+                                                    <span style="display: block;color: #118f2d;font-size: 12px;padding-top: 4px;font-weight: bold;margin-top: -30px;margin-bottom: 19px;line-height:14px;">
+                                                        Até ${descontos.max}% de desconto
+                                                    </span>
+                                            
+                                            `;
+                                        }
+
                                         return `
                                             <div class="col-6 pe-2" data-filter-item data-filter-name="${produto.title} ${produto.short_description}">
                                                 <div class="card card-style mx-0">
@@ -649,9 +684,7 @@ class Models{
                                                                 ${produto.comissao_dif_val}% de comissão!
                                                             </span>`
                                                             : `
-                                                                <span style="display: block;color: #118f2d;font-size: 12px;padding-top: 4px;font-weight: bold;margin-top: -30px;margin-bottom: 19px;line-height:14px;">
-                                                                    Até ${descontos.cupons[0].comissao_que_o_vendedor_ganha}% de comissão e ${descontos.max}% de desconto
-                                                                </span>
+                                                                ${htmlExtraCupons}
                                                             `
                                                         }
                                                         <a href="" onclick="app.views.verProduto(${produto.product_id});" class="btn btn-s btn-full border-highlight rounded-s color-highlight mb-3">VER DETALHES</a>
@@ -795,7 +828,7 @@ class Models{
                                                     </h5>
                                                     <p class="line-height-s mt-1 opacity-90">
                                                         Total pedido: R$${pedido.total_pedido}<br>
-                                                        ${pedido.extra_conteudos}
+                                                        ${pedido.extra_conteudos.replace(`<br>Comissão: Não<br>Comissão DIF: `, '')}
                                                     </p>
                                                 </div>
                                                 <div class="align-self-center ps-3">
