@@ -112,7 +112,7 @@ class Views{
                             if(descontos.cupom_personalizado!="" && descontos.cupom_personalizado != undefined && controle==0){
                                 htmlCustom = `
 
-                                <div style="font-weight:normal;background:#f2f2f2;padding:10px;border:2px dotted #000;width:420px;max-width:100%;font-size:1.12em;line-height: 23px;text-align:center;margin-top:30px;margin-bottom:30px;">
+                                <div style="display:none;font-weight:normal;background:#f2f2f2;padding:10px;border:2px dotted #000;width:420px;max-width:100%;font-size:1.12em;line-height: 23px;text-align:center;margin-top:30px;margin-bottom:30px;">
                                     <!--O <b>código de cupom</b> de identificação parceiro é: <br>--><b>${descontos.cupom_personalizado}</b><br>
                                     <a href="" class="copiar-codigo" onclick="copiarCodigo('.codigo-cupom-name-${descontos.cupom_personalizado}')">copiar código</a>
                                     &nbsp;&nbsp;&nbsp;
@@ -133,7 +133,7 @@ class Views{
                                 cupomDuplicata = `
 
                                         <div style="font-weight:normal;background:#fff;padding:10px;border:2px dotted #000;width:420px;max-width:100%;font-size:1.12em;line-height: 23px;text-align:center">
-                                            <!--O <b>código de cupom</b> de identificação parceiro é: <br>--><b>${descontos.cupom_personalizado}-${localStorage.getItem("idVendedorLogado")}-R${desconto.desconto_aplicado_ao_carrinho}</b><br>
+                                            O <b>código de cupom</b> de identificação parceiro é: <br><b>${descontos.cupom_personalizado}-${localStorage.getItem("idVendedorLogado")}-R${desconto.desconto_aplicado_ao_carrinho}</b><br>
                                             <a href="" class="copiar-codigo" onclick="copiarCodigo('.codigo-cupom-name2-${desconto.desconto_aplicado_ao_carrinho}')">copiar código</a>
                                             &nbsp;&nbsp;&nbsp;
                                             <a href="" 
@@ -156,7 +156,7 @@ class Views{
                             ${cupomDuplicata}
 
                             <div style="font-weight:normal;background:#fff;padding:10px;border:2px dotted #000;width:420px;max-width:100%;font-size:1.12em;line-height: 23px;text-align:center">
-                                <!--O <b>código de cupom</b> de identificação parceiro é: <br>--><b>COLAB-A2024-${localStorage.getItem("idVendedorLogado")}-R${desconto.desconto_aplicado_ao_carrinho}</b><br>
+                                O <b>código de cupom</b> de identificação parceiro é: <br><b>COLAB-A2024-${localStorage.getItem("idVendedorLogado")}-R${desconto.desconto_aplicado_ao_carrinho}</b><br>
                                 <a href="" class="copiar-codigo" onclick="copiarCodigo('.codigo-cupom-name-${desconto.desconto_aplicado_ao_carrinho}')">copiar código</a>
                                 &nbsp;&nbsp;&nbsp;
                                 <a href="" 
@@ -212,7 +212,7 @@ class Views{
                                         
                                         ${htmlCustom}
 
-                                        <div style="font-weight:normal;background:#f2f2f2;padding:10px;border:2px dotted #000;width:420px;max-width:100%;font-size:1.12em;line-height: 23px;text-align:center;margin-top:30px;margin-bottom:30px;">
+                                        <div style="display:none;font-weight:normal;background:#f2f2f2;padding:10px;border:2px dotted #000;width:420px;max-width:100%;font-size:1.12em;line-height: 23px;text-align:center;margin-top:30px;margin-bottom:30px;">
                                             <!--O <b>código de cupom</b> de identificação parceiro é: <br>--><b>COLAB-A2024-${localStorage.getItem("idVendedorLogado")} </b><br>
 
                                             <a href="" class="copiar-codigo" onclick="copiarCodigo('.codigo-cupom-name3')">
