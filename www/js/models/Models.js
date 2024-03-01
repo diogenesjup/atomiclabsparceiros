@@ -811,13 +811,18 @@ class Models{
                                         }
 
                                         if(pedido.extra_conteudos!="N/A"){
+
+                                            pedido.extra_conteudos = pedido.extra_conteudos.replace(`Nome do cliente:`, '<br>Nome do cliente:');
+                                            pedido.extra_conteudos = pedido.extra_conteudos.replace(`Nome do cliente:`, '<br>Nome do cliente:');
+
+
                                         return `
             
                                             <a 
                                                 href="" 
                                                 ${estilo}
                                                 class="d-flex mb-3" 
-                                                data-filter-item data-filter-name="${pedido.pedido} ${pedido.cupom}"
+                                                data-filter-item data-filter-name="${pedido.pedido} ${pedido.cupom} ${pedido.extra_conteudos}"
                                             >
                                                 <div class="resumo-letra-contato">
                                                     #${pedido.pedido}
