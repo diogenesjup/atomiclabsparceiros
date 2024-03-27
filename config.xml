@@ -104,6 +104,37 @@
         <icon src="www/assets/images/icones/1024x1024.png" density="xxxhdpi"  width="1024" height="1024" />
 
     </platform>
+
+    <platform name="ios">
+        <!--
+            ldpi    : 36x36 px
+            mdpi    : 48x48 px
+            hdpi    : 72x72 px
+            xhdpi   : 96x96 px
+            xxhdpi  : 144x144 px
+            xxxhdpi : 192x192 px
+        -->
+        <icon src="www/assets/images/icones/36.png"  density="ldpi" width="36" height="36" />
+        <icon src="www/assets/images/icones/40.png"  density="ldpi" width="40" height="40" />
+        <icon src="www/assets/images/icones/57.png"  density="mdpi" width="57" height="57" />
+        <icon src="www/assets/images/icones/64.png"  density="mdpi" width="64" height="64" />
+        <icon src="www/assets/images/icones/72.png"  density="hdpi" width="72" height="72" />
+        <icon src="www/assets/images/icones/114.png" density="xhdpi" width="114" height="114" />
+        <icon src="www/assets/images/icones/120.png" density="xhdpi" width="120" height="120" />
+        <icon src="www/assets/images/icones/144.png" density="xxhdpi" width="144" height="144" />
+        <icon src="www/assets/images/icones/152.png" density="xxhdpi" width="152" height="152" />
+        <icon src="www/assets/images/icones/173.png" density="xxhdpi" width="173" height="173" />
+        <icon src="www/assets/images/icones/96.png"  density="xhdpi" width="96" height="96" />
+        <icon src="www/assets/images/icones/180.png" density="xxhdpi" width="180" height="180" />
+        <icon src="www/assets/images/icones/192.png" density="xxxhdpi" width="192" height="192" />
+        <icon src="www/assets/images/icones/225.png" density="xxxhdpi" width="225" height="225" />
+        <icon src="www/assets/images/icones/320.png" density="xxxhdpi" width="320" height="320" />
+        <icon src="www/assets/images/icones/512.png" density="xxxhdpi" width="512" height="512" />
+        <icon src="www/assets/images/icones/768.png" density="xxxhdpi" width="768" height="768" />
+        <icon src="www/assets/images/icones/960.png" density="xxxhdpi" width="960" height="960" />
+        <icon src="www/assets/images/icones/1024x1024.png" density="xxxhdpi"  width="1024" height="1024" />
+
+    </platform>
     
     <plugin name="cordova-plugin-whitelist" version="1.3.4" />
 
