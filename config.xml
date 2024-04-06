@@ -4,7 +4,7 @@
 <widget xmlns     = "http://www.w3.org/ns/widgets"
         xmlns:gap = "http://phonegap.com/ns/1.0"
         id        = "com.diogenesjunior.atomiclabsparceiros"
-        version   = "1.0.9">
+        version   = "1.0.10">
 
         <!-- LEMBRAR DE MUDAR O APP ID ANTES DE SUBIR O APP NAS LOJAS -->
 
@@ -133,6 +133,15 @@
         <icon src="www/assets/images/icones/768.png" density="xxxhdpi" width="768" height="768" />
         <icon src="www/assets/images/icones/960.png" density="xxxhdpi" width="960" height="960" />
         <icon src="www/assets/images/icones/1024x1024.png" density="xxxhdpi"  width="1024" height="1024" />
+
+        <icon src="www/assets/images/icones/20.png" width="20" height="20" />
+        <icon src="www/assets/images/icones/60.png" width="60" height="60" />
+        <icon src="www/assets/images/icones/29.png" width="29" height="29" />
+        <icon src="www/assets/images/icones/58.png" width="58" height="58" />
+        <icon src="www/assets/images/icones/87.png" width="87" height="87" />
+        <icon src="www/assets/images/icones/76.png" width="76" height="76" />
+        <icon src="www/assets/images/icones/152.png" width="152" height="152" />
+        <icon src="www/assets/images/icones/167.png" width="167" height="167" />
 
     </platform>
     
