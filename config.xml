@@ -4,7 +4,7 @@
 <widget xmlns     = "http://www.w3.org/ns/widgets"
         xmlns:gap = "http://phonegap.com/ns/1.0"
         id        = "com.diogenesjunior.atomiclabsparceiros"
-        version   = "1.0.11">
+        version   = "1.0.12">
 
         <!-- LEMBRAR DE MUDAR O APP ID ANTES DE SUBIR O APP NAS LOJAS -->
 
@@ -33,17 +33,17 @@
     <preference name="disable-cursor"             value="false" />         
     <preference name="android-installLocation"    value="auto" />     
     <preference name="StatusBarBackgroundColor"   value="#f1ebdf" />
-    <preference name="android-minSdkVersion"      value="30" />
+    <preference name="android-minSdkVersion"      value="33" />
     <preference name="android-targetSdkVersion"   value="33" />
     <preference name="AndroidXEnabled"            value="true" />
 
     
-    <!--
+    
     <edit-config file="app/src/main/AndroidManifest.xml" mode="merge" target="/manifest/application/activity[@android:name='MainActivity']">
         <activity android:exported="true"/>
         <application android:exported="true" />
     </edit-config>
-    
+    <!--
     <edit-config  file="app/src/main/AndroidManifest.xml" mode="merge" android:exported="true" target="/manifest/application" xmlns:android="http://schemas.android.com/apk/res/android">
             <application android:usesCleartextTraffic="true" />
             <application android:networkSecurityConfig="@xml/network_security_config" />
@@ -53,17 +53,17 @@
             </intent-filter>
     </edit-config>
 -->
-    <!--<plugin name="cordova-plugin-androidx" />
-    <plugin name="cordova-plugin-androidx-adapter" />-->
-    <!--<plugin name="cordova-plugin-local-notification" />-->
+    <plugin name="cordova-plugin-androidx" />
+    <plugin name="cordova-plugin-androidx-adapter" />
+    <plugin name="cordova-plugin-local-notification" />
 
     
    
-    <!--<plugin name="cordova-plugin-android-permissions" />
+    <plugin name="cordova-plugin-android-permissions" />
     <plugin name="cordova-plugin-inappbrowser" />
-    <plugin name="cordova-plugin-statusbar" />-->
-    <!--<plugin name="cordova-plugin-ionic-webview" />-->
-    <!--<plugin name="cordova-plugin-x-socialsharing" />-->
+    <plugin name="cordova-plugin-statusbar" />
+    <plugin name="cordova-plugin-ionic-webview" />
+    <plugin name="cordova-plugin-x-socialsharing" />
     <preference name="WKWebViewOnly" value="true" />
     <feature name="CDVWKWebViewEngine">
        <param name="ios-package" value="CDVWKWebViewEngine" />
@@ -145,7 +145,7 @@
 
     </platform>
     
-    <plugin name="cordova-plugin-whitelist"  /> <!-- version="1.3.4" -->
+    <plugin name="cordova-plugin-whitelist" version="1.3.4"  /> <!-- -->
 
     <access origin="*"/>
     <allow-navigation href="*" />
