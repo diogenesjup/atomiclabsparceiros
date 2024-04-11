@@ -4,7 +4,7 @@
 <widget xmlns     = "http://www.w3.org/ns/widgets"
         xmlns:gap = "http://phonegap.com/ns/1.0"
         id        = "com.diogenesjunior.atomiclabsparceiros"
-        version   = "1.0.13">
+        version   = "1.0.14">
 
         <!-- LEMBRAR DE MUDAR O APP ID ANTES DE SUBIR O APP NAS LOJAS -->
 
@@ -34,7 +34,7 @@
     <preference name="android-installLocation"    value="auto" />     
     <preference name="StatusBarBackgroundColor"   value="#f1ebdf" />
     <preference name="android-minSdkVersion"      value="30" />
-    <preference name="android-targetSdkVersion"   value="30" />
+    <preference name="android-targetSdkVersion"   value="33" />
     <preference name="AndroidXEnabled"            value="true" />
 
     
@@ -44,6 +44,7 @@
         <application android:exported="true" />
     </edit-config>
     -->
+    
     <!--
     <edit-config  file="app/src/main/AndroidManifest.xml" mode="merge" android:exported="true" target="/manifest/application" xmlns:android="http://schemas.android.com/apk/res/android">
             <application android:usesCleartextTraffic="true" />
