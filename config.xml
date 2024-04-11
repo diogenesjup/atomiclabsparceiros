@@ -4,9 +4,7 @@
 <widget xmlns     = "http://www.w3.org/ns/widgets"
         xmlns:gap = "http://phonegap.com/ns/1.0"
         id        = "com.diogenesjunior.atomiclabsparceiros"
-        version   = "1.0.14">
-
-        <!-- LEMBRAR DE MUDAR O APP ID ANTES DE SUBIR O APP NAS LOJAS -->
+        version   = "1.0.15">
 
     <name>Atomic Labs Parceiros</name>
 
@@ -18,7 +16,7 @@
         Diogenes Junior
     </author>
  
-    <engine name="android" spec="^8.0.0" />
+    <engine name="android" spec="^10.1.1" />
 
     <preference name="android-build-tool"         value="gradle" />
     <preference name="orientation"                value="portrait" />     
@@ -33,9 +31,9 @@
     <preference name="disable-cursor"             value="false" />         
     <preference name="android-installLocation"    value="auto" />     
     <preference name="StatusBarBackgroundColor"   value="#f1ebdf" />
-    <preference name="android-minSdkVersion"      value="30" />
+    <preference name="android-minSdkVersion"      value="31" />
     <preference name="android-targetSdkVersion"   value="33" />
-    <preference name="AndroidXEnabled"            value="true" />
+    <preference name="AndroidXEnabled"            value="false" />
 
     
     <!--
@@ -65,7 +63,7 @@
     <plugin name="cordova-plugin-inappbrowser" />
     <plugin name="cordova-plugin-statusbar" />
     <plugin name="cordova-plugin-ionic-webview" />
-    <plugin name="cordova-plugin-x-socialsharing" />
+    <plugin name="cordova-plugin-x-socialsharing" version="5.3.1"  />
     <preference name="WKWebViewOnly" value="true" />
     <feature name="CDVWKWebViewEngine">
        <param name="ios-package" value="CDVWKWebViewEngine" />
