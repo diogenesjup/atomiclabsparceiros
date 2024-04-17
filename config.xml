@@ -3,6 +3,7 @@
 <!-- config.xml reference: https://build.phonegap.com/docs/config-xml -->
 <widget xmlns     = "http://www.w3.org/ns/widgets"
         xmlns:gap = "http://phonegap.com/ns/1.0"
+        xmlns:android="http://schemas.android.com/apk/res/android"
         id        = "com.diogenesjunior.atomiclabsparceiros"
         version   = "1.0.17">
 
@@ -36,11 +37,11 @@
     <preference name="AndroidXEnabled"            value="false" />
 
 
-    <preference name="AndroidWindowSplashScreenAnimatedIcon" value="www/assets/images/icones/1024x1024.png" />
+    <!--<preference name="AndroidWindowSplashScreenAnimatedIcon" value="www/assets/images/icones/1024x1024.png" />-->
     
     
     <!-- Assumindo que você está usando uma versão do Cordova que suporta a configuração de android:exported -->
-    <edit-config file="app/src/main/AndroidManifest.xml" mode="merge" target="/manifest/application/activity[@android:name='MainActivity']">
+    <edit-config file="AndroidManifest.xml" mode="merge" target="/manifest/application/activity[@android:name='MainActivity']">
         <activity android:exported="true"/>
     </edit-config>
 
