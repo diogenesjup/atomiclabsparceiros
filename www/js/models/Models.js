@@ -24,11 +24,16 @@ class Models{
                      xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
 
                      var params = "token="+app.token+"&email="+email+"&senha="+senha;
+
+                     console.log("Dados que vamos enviar");
+                     console.log(params);
                      
                      // INICIO AJAX VANILLA
                      xhr.onreadystatechange = () => {
 
                      if(xhr.readyState == 4) {
+
+                       
 
                          if(xhr.status == 200) {
 
@@ -64,7 +69,7 @@ class Models{
                          }else{
                          
                              console.log("SEM SUCESSO procLogin()");
-                             console.log(JSON.parse(xhr.responseText));
+                             console.log(xhr.responseText);
 
                              document.getElementById('msgErroLoginSenha2').click();
                             
