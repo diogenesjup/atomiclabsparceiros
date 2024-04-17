@@ -4,7 +4,7 @@
 <widget xmlns     = "http://www.w3.org/ns/widgets"
         xmlns:gap = "http://phonegap.com/ns/1.0"
         id        = "com.diogenesjunior.atomiclabsparceiros"
-        version   = "1.0.16">
+        version   = "1.0.17">
 
     <name>Atomic Labs Parceiros</name>
 
@@ -38,13 +38,13 @@
 
     <preference name="AndroidWindowSplashScreenAnimatedIcon" value="www/assets/images/icones/1024x1024.png" />
     
-    <!--
+    
+    <!-- Assumindo que você está usando uma versão do Cordova que suporta a configuração de android:exported -->
     <edit-config file="app/src/main/AndroidManifest.xml" mode="merge" target="/manifest/application/activity[@android:name='MainActivity']">
         <activity android:exported="true"/>
-        <application android:exported="true" />
     </edit-config>
-    -->
-    
+
+        
     <!--
     <edit-config  file="app/src/main/AndroidManifest.xml" mode="merge" android:exported="true" target="/manifest/application" xmlns:android="http://schemas.android.com/apk/res/android">
             <application android:usesCleartextTraffic="true" />
