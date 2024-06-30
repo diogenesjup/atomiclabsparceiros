@@ -22,8 +22,9 @@ class Models{
                                             
                      xhr.open('POST', "https://parceiro.atomiclabs.com.br/wp-json/atomiclabs/v1/auth/",true);
                      xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+                     xhr.withCredentials = true; // Adicione esta linha
 
-                     var params = "token="+app.token+"&email="+email+"&senha="+senha;
+                     var params = "token="+app.token+"&email="+encodeURIComponent(email)+"&senha="+encodeURIComponent(senha);
 
                      console.log("Dados que vamos enviar");
                      console.log(params);
