@@ -5,7 +5,7 @@
         xmlns:gap = "http://phonegap.com/ns/1.0"
         xmlns:android="http://schemas.android.com/apk/res/android"
         id        = "com.diogenesjunior.atomiclabsparceiros"
-        version   = "1.0.22">
+        version   = "1.0.23">
 
     <name>Atomic Labs Parceiros</name>
 
@@ -64,10 +64,7 @@
     <plugin name="cordova-plugin-inappbrowser" />
     <plugin name="cordova-plugin-statusbar" />
     <plugin name="cordova-plugin-ionic-webview" />
-    <preference name="Scheme" value="https" />
-    <preference name="Hostname" value="localhost" />
-
-
+   
     <plugin name="cordova-plugin-x-socialsharing" />
     <preference name="WKWebViewOnly" value="true" />
     <feature name="CDVWKWebViewEngine">
