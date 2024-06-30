@@ -22,7 +22,7 @@ class Models{
                                             
                      xhr.open('POST', "https://parceiro.atomiclabs.com.br/wp-json/atomiclabs/v1/auth/",true);
                      xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
-                     xhr.withCredentials = true; // Adicione esta linha
+                    
 
                      var params = "token="+app.token+"&email="+encodeURIComponent(email)+"&senha="+encodeURIComponent(senha);
 
@@ -43,7 +43,7 @@ class Models{
 
                              if(dados.sucesso==200){
 
-                                if(dados.pavs_is_vendedor=="sim"){
+                                if(dados.pavs_is_vendedor=="sim" || dados.pavs_is_vendedor=="Sim"){
 
                                         localStorage.setItem("idVendedorLogado",dados.id_usuario);
                                         localStorage.setItem("vendedorChavePix",dados.chave_pix);
