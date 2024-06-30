@@ -33,8 +33,6 @@ class Models{
 
                      if(xhr.readyState == 4) {
 
-                       
-
                          if(xhr.status == 200) {
 
                              console.log("OPERAÇÃO REALIZADA COM SUCESSO");
