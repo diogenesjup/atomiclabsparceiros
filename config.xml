@@ -5,7 +5,7 @@
         xmlns:gap = "http://phonegap.com/ns/1.0"
         xmlns:android="http://schemas.android.com/apk/res/android"
         id        = "com.diogenesjunior.atomiclabsparceiros"
-        version   = "1.0.27">
+        version   = "1.0.28">
 
     <name>Atomic Labs Parceiros</name>
 
@@ -80,6 +80,8 @@
         <preference name="AllowUntrustedCerts" value="on" />
         <preference name="InterceptRemoteRequests" value="all" />
         <preference name="NativeXHRLogging" value="full" />
+        <preference name="scheme" value="app" />
+        <preference name="hostname" value="localhost" />
 
         <edit-config target="*-Info.plist" file="*-Info.plist" mode="merge">
             <dict>
