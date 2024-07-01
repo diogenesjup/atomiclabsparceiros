@@ -17,68 +17,48 @@ class Models{
                      var email = jQuery("#form1a").val();
                      var senha = jQuery("#form1b").val();
 
-                     // CONFIGURAÇÕES AJAX VANILLA
-                     let xhr = new XMLHttpRequest();
-                                            
-                     xhr.open('POST', "https://parceiro.atomiclabs.com.br/wp-json/atomiclabs/v1/auth/",true);
-                     xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
-                    
-
-                     var params = "token="+app.token+"&email="+encodeURIComponent(email)+"&senha="+encodeURIComponent(senha);
-
-                     console.log("Dados que vamos enviar");
-                     console.log(params);
-                     
-                     // INICIO AJAX VANILLA
-                     xhr.onreadystatechange = () => {
-
-                     if(xhr.readyState == 4) {
-
-                         if(xhr.status == 200) {
-
-                             console.log("OPERAÇÃO REALIZADA COM SUCESSO");
-                             console.log(JSON.parse(xhr.responseText));
-
-                             var dados = JSON.parse(xhr.responseText);
-
-                             if(dados.sucesso==200){
-
-                                if(dados.pavs_is_vendedor=="sim" || dados.pavs_is_vendedor=="Sim"){
-
-                                        localStorage.setItem("idVendedorLogado",dados.id_usuario);
-                                        localStorage.setItem("vendedorChavePix",dados.chave_pix);
-                                        localStorage.setItem("vendedorTitularPix",dados.titular_pix);
-                                        localStorage.setItem("vendedorTipoChavePix",dados.tipo_chave_pix);
-                                        localStorage.setItem("vendedorCpfTitularPix",dados.cpf_titular_pix);
-
-                                        location.href="dashboard.html";
-
-                                }else{
-                                       
+                     var params = {
+                        token: app.token,
+                        email: encodeURIComponent(email),
+                        senha: encodeURIComponent(senha)
+                    };
+                
+                    console.log("Dados que vamos enviar");
+                    console.log(params);
+                
+                    // CONFIGURAÇÕES AJAX JQUERY
+                    jQuery.ajax({
+                        url: "https://parceiro.atomiclabs.com.br/wp-json/atomiclabs/v1/auth/",
+                        type: "POST",
+                        data: params,
+                        dataType: "json",
+                        success: function(response) {
+                            console.log("OPERAÇÃO REALIZADA COM SUCESSO");
+                            console.log(response);
+                
+                            if (response.sucesso == 200) {
+                                if (response.pavs_is_vendedor.toLowerCase() == "sim") {
+                                    localStorage.setItem("idVendedorLogado", response.id_usuario);
+                                    localStorage.setItem("vendedorChavePix", response.chave_pix);
+                                    localStorage.setItem("vendedorTitularPix", response.titular_pix);
+                                    localStorage.setItem("vendedorTipoChavePix", response.tipo_chave_pix);
+                                    localStorage.setItem("vendedorCpfTitularPix", response.cpf_titular_pix);
+                
+                                    location.href = "dashboard.html";
+                                } else {
                                     document.getElementById('msgErroLoginSenha3').click();
-
                                 }
-
-                             }else{
-                                 
-                                 document.getElementById('msgErroLoginSenha2').click();
-                                 
-                             }
-                             
-                         }else{
-                         
-                             console.log("SEM SUCESSO procLogin()");
-                             console.log(xhr.responseText);
-
-                             document.getElementById('msgErroLoginSenha2').click();
-                            
-                         }
-
-                     }
-                 }; // FINAL AJAX VANILLA
-
-                 /* EXECUTA */
-                 xhr.send(params);
+                            } else {
+                                document.getElementById('msgErroLoginSenha2').click();
+                            }
+                        },
+                        error: function(xhr, status, error) {
+                            console.log("SEM SUCESSO procLogin()");
+                            console.log(xhr.responseText);
+                
+                            document.getElementById('msgErroLoginSenha2').click();
+                        }
+                    });
 
             
     }
