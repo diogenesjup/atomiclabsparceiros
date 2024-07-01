@@ -5,7 +5,7 @@
         xmlns:gap = "http://phonegap.com/ns/1.0"
         xmlns:android="http://schemas.android.com/apk/res/android"
         id        = "com.diogenesjunior.atomiclabsparceiros"
-        version   = "1.0.26">
+        version   = "1.0.27">
 
     <name>Atomic Labs Parceiros</name>
 
@@ -36,7 +36,7 @@
     <preference name="android-targetSdkVersion"   value="33" />
     <preference name="AndroidXEnabled"            value="false" />
 
-
+    
     <!--<preference name="AndroidWindowSplashScreenAnimatedIcon" value="www/assets/images/icones/1024x1024.png" />-->
     
     
@@ -70,8 +70,17 @@
     <feature name="CDVWKWebViewEngine">
        <param name="ios-package" value="CDVWKWebViewEngine" />
     </feature>
+    
+    <!-- IOS -->
+    <plugin name="cordova-plugin-wkwebview-engine" />
+    <plugin name="cordova-plugin-wkwebview-file-xhr" spec="~2.1.4" />
 
     <platform name="ios">
+
+        <preference name="AllowUntrustedCerts" value="on" />
+        <preference name="InterceptRemoteRequests" value="all" />
+        <preference name="NativeXHRLogging" value="full" />
+
         <edit-config target="*-Info.plist" file="*-Info.plist" mode="merge">
             <dict>
                 <key>NSAppTransportSecurity</key>
